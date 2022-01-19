@@ -1,33 +1,36 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  base_title_page: "Phone ecommerce"
+  login: "Login"
+  home: "Home"
+  header:
+    my_account: "My Account"
+    wishlist: "Wishlist"
+    my_cart: " My Cart"
+    checkout: "Checkout"
+    language: "Language"
+    english: "English"
+    vietnamese: "Vietnamese"
+    cart: "Cart"
+    shop_page: "Shop page"
+    product: "Product"
+    category: "Category"
+    contact: "Contact"
+  footer:
+    name_shop: "Stora"
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?"
+    user_navigation: "User Navigation"
+    my_account: "My account"
+    order_history: "Order history"
+    vendor_contact: "Vendor contact"
+    front_page: "Front page"
+    categories: "Categories"
+    mobile_phone: "Mobile Phone"
+    home_accesseries: "Home accesseries"
+    led_tv: "LED TV"
+    computer: "Computer"
+    gadets: "Gadets"
+    newsletter: "Newsletter"
+    sign_in_to_out: "Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!"
+    type_your_email: "Type your email"
+    subscribe: "Subscribe"
+    copy_right: "&copy; 2015 uCommerce. All Rights Reserved."
