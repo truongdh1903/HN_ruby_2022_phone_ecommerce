@@ -47,4 +47,11 @@ config/environments/*.local.yml
 # Ignore application configuration
 /config/application.yml
 
-/spec/
+/spec
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

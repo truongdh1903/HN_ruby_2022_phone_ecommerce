@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     get "/checkout", to: "static_pages#checkout"
     get "/shop", to: "static_pages#shop"
     get "/product", to: "static_pages#product"
+    get "/signup", to: "users#new"
+    resources :users, only: :create
   end
 end

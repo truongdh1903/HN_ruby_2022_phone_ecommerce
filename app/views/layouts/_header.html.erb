@@ -4,15 +4,13 @@
       <div class="col-md-8">
         <div class="user-menu">
           <ul>
-            <li><a href="#"><i class="fa fa-user"></i> <%= t "header.my_account" %></a></li>
-            <li><a href="#"><i class="fa fa-heart"></i> <%= t "header.my_account" %></a></li>
             <li>
               <%= link_to t("header.my_cart"), cart_path %>
             </li>
             <li>
               <%= link_to t("header.checkout"), checkout_path %>
             </li>
-            <li><a href="#"><i class="fa fa-user"></i> <%= t "login" %></a></li>
+            <li><%= link_to t("signup"), signup_path %></li>
           </ul>
         </div>
       </div>
