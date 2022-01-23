@@ -1442,6 +1442,28 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
   margin-bottom: 50px
 }
 
+.search{
+  display: flex;
+  justify-content: center;
+}
+
+.filter{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.select-filter{
+  padding-left: 0;
+  padding-right: 5px;
+}
+
+.submit-filter{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 .pagination>li>a,
 .pagination>li>span {
   color: $blue-light;

@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     get "/cart", to: "static_pages#cart"
     get "/checkout", to: "static_pages#checkout"
     get "/shop", to: "static_pages#shop"
-    get "/product", to: "static_pages#product"
     get "/signup", to: "users#new"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     resources :users
+    resources :products, only: :index
   end
 end

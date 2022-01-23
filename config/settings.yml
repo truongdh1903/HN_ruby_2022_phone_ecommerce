@@ -2,3 +2,11 @@ email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 email_max_len: 255
 passwd_min_len: 6
 phone_len_range: !ruby/range 8..12
+default_cost: 0
+default_option_all: 0
+currency_break: "."
+size_all_product: 300
+
+max_costs_million: [20, 15, 10, 8, 5, 3]
+min_costs_million: [3, 5, 8, 10, 15, 20]
+unit_cost: 1_000_000
