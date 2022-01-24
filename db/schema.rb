@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_041459) do
+ActiveRecord::Schema.define(version: 2022_01_20_041619) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -140,7 +140,6 @@ ActiveRecord::Schema.define(version: 2022_01_20_041459) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.datetime "deleted_at"
   end
 
   add_foreign_key "comments", "products"
