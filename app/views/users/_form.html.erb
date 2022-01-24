@@ -1,10 +1,5 @@
 <%= form_for(@user) do |f| %>
   <%= render "shared/error_messages", object: @user %>
-  <%= f.label :role %><br>
-  <%= radio_button("user", "role", "2") %>
-  <%= f.label :user %>
-  <%= radio_button("user", "role", "1") %>
-  <%= f.label :supplier %><br>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
   <%= f.label :address %>
