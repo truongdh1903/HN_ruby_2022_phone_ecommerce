@@ -11,7 +11,7 @@
               <%= link_to t("header.checkout"), checkout_path %>
             </li>
             <% if logged_in? %>
-              <li><a href="#"><i class="fa fa-user"></i> <%= t "header.my_account" %></a></li>
+              <li><%= link_to t("header.my_account"), current_user %></li>
               <li><%= link_to t("logout"), logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to t("login"), login_path %></li>

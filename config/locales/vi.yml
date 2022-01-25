@@ -82,3 +82,13 @@ vi:
       add_to_card: "Thêm vào giỏ"
       currency_unit_front: ""
       currency_unit_back: "VNĐ"
+  edit_user: "Chỉnh sửa"
+  update_your_profile: "Chỉnh sửa thông tin cá nhân"
+  activerecord:
+    attributes:
+      user:
+        name: "Tên"
+        address: "Địa chỉ"
+        phone: "Số điện thoại"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
