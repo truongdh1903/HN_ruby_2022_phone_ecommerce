@@ -9,6 +9,7 @@ class AccountActivationsController < ApplicationController
     end
   end
 
+  private
   def activate_redirect user
     user.activate
     log_in user
