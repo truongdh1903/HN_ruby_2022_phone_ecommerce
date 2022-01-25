@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_075428) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.string "remember_digest"
   end
 
   add_foreign_key "comments", "products"
