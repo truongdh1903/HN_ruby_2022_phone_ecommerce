@@ -1,0 +1,63 @@
+<div class="single-product-area">
+  <div class="zigzag-bottom"></div>
+  <div class="container">
+    <%= form_tag products_path, method: :get do %>
+      <div class="search">
+        <p>
+          <%= text_field_tag :key, params[:key],
+                              class:"ddl",
+                              placeholder: t(".search_products") %>
+          <%= submit_tag t(".search"), value: t(".search") %>
+        </p>
+      </div>
+    <% end %>
+    <%= form_tag products_path, class: "filter", method: :get do %>
+
+      <div class="col-sm-3 col-md-2 select-filter">
+        <%= label_tag :category_id, t(".company") %>
+        <%= select_tag :category_id,
+                        options_for_select(get_selects_from_entities(@categories),
+                                          get_default_option(:category_id)),
+                        {:class => "form-control"} %>
+      </div>
+      <div class="col-sm-3 col-md-2 select-filter">
+        <%= label_tag :product_size_id, t(".memory_capacity") %>
+        <%= select_tag :product_size_id,
+                        options_for_select(get_selects_from_entities(@product_sizes),
+                                         get_default_option(:product_size_id)),
+                        {:class => "form-control"} %>
+      </div>
+      <div class="col-sm-3 col-md-2 select-filter">
+        <%= label_tag :product_color_id, t(".color") %>
+        <%= select_tag :product_color_id,
+                        options_for_select(get_selects_from_entities(@product_colors),
+                                            get_default_option(:product_color_id)),
+                        {:class => "form-control"} %>
+      </div>
+      <div class="col-sm-3 col-md-2 select-filter">
+        <%= label_tag t(".price") %>
+        <%= select_tag :min_cost,  options_for_select(get_selects_from_array(@min_costs), get_default_option(:min_cost)), {:class => "form-control"} %>
+      </div>
+      <div class="col-sm-3 col-md-2 select-filter">
+        <%= label_tag t(".price") %>
+        <%= select_tag :max_cost,
+                        options_for_select(get_selects_from_array(@max_costs),
+                                            get_default_option(:max_cost)),
+                        {:class => "form-control"} %>
+      </div>
+
+      <%= submit_tag t(".filter"), class: "btn btn-default submit-filter btn-sm" %>
+    <% end %>
+    <div class="row" id="products">
+      <%= render @products %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-pagination text-center">
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

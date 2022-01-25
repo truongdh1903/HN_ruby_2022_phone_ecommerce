@@ -6,6 +6,4 @@ class StaticPagesController < ApplicationController
   def checkout; end
 
   def shop; end
-
-  def product; end
 end
