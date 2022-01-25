@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   has_many :orders, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :received_messages, class_name: Message.name,
                                foreign_key: "user_receiver_id",
                                dependent: :destroy
+  before_create :create_activation_digest
   before_save :downcase_email
 
   validates :address, presence: true
@@ -57,7 +58,34 @@ class User < ApplicationRecord
     end
   end
 
+  def activate
+    update_columns activated: true, activated_at: Time.zone.now
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < Settings.expire_hour.hours.ago
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns reset_digest: User.digest(reset_token),
+      reset_sent_at: Time.zone.now
+  end
+
   private
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest activation_token
+  end
+
   def downcase_email
     email.downcase!
   end

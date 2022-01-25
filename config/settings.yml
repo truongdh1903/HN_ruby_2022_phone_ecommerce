@@ -2,6 +2,7 @@ email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 email_max_len: 255
 passwd_min_len: 6
 phone_len_range: !ruby/range 8..12
+expire_hour: 2
 default_cost: 0
 default_option_all: 0
 currency_break: "."

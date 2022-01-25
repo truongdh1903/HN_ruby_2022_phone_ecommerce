@@ -4,8 +4,13 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    if @user.authenticate params[:session][:password]
-      log_in_redirect @user
+    if @user&.authenticate params[:session][:password]
+      if @user.activated?
+        log_in_redirect @user
+      else
+        flash[:warning] = t "account_not_activated"
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = t "invalid_info"
       render :new
@@ -14,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to_shop
+    redirect_to root_url
   end
 
   private
