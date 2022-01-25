@@ -6,8 +6,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      log_in @user
-      redirect_to_shop
+      @user.send_activation_email
+      flash[:info] = t "check_email"
+      redirect_to root_url
     else
       render :new
     end
