@@ -25,4 +25,23 @@ class Product < ApplicationRecord
   end)
   scope :search, ->(key){where("LOWER(name) like ?", "%#{key.downcase}%")}
   scope :order_created_at, ->{order(created_at: :desc)}
+  scope :top_sellers, (lambda do |size|
+    joins(product_details: :order_details)
+      .select("products.*, SUM(order_details.quantity) as sum_order")
+      .group("product_id")
+      .order("sum_order DESC")
+      .limit(size)
+  end)
+
+  scope :top_new, (lambda do |size|
+    order(created_at: :desc).limit(size)
+  end)
+
+  scope :top_rates, (lambda do |size|
+    joins(:rates)
+      .select("products.*, AVG(number_of_stars) as avg_stars")
+      .group("product_id")
+      .order(avg_stars: :desc)
+      .limit(size)
+  end)
 end

@@ -7,7 +7,10 @@ default_cost: 0
 default_option_all: 0
 currency_break: "."
 size_all_product: 300
-
 max_costs_million: [20, 15, 10, 8, 5, 3]
 min_costs_million: [3, 5, 8, 10, 15, 20]
 unit_cost: 1_000_000
+default_star: 0
+star_round_after_comma: 1
+number_of_top: 5
+number_of_suggest: 30
