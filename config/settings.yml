@@ -12,6 +12,9 @@ star_round_after_comma: 1
 number_of_top: 5
 number_of_suggest: 30
 default_star_rate: 0
+min_star_rate: 1
+max_star_rate: 5
+step_star_rate: 1
 max_costs_million: [20, 15, 10, 8, 5, 3]
 min_costs_million: [3, 5, 8, 10, 15, 20]
 unit_cost: 1_000_000
@@ -21,3 +24,4 @@ content_comment_max_len: 1000
 default_size_avatar: 80
 small_size_avatar: 40
 gravatar_url: "https://secure.gravatar.com/avatar"
+all_percent: 100

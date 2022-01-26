@@ -28,7 +28,7 @@ module ApplicationHelper
   def display_star_html number_of_star
     number_of_star = number_of_star.round
     star_tags = html_escape("")
-    Settings.sum_star.times do |n|
+    Settings.max_star_rate.times do |n|
       star_tags << if n < number_of_star
                      content_tag :i, "", class: "fa fa-star color-star"
                    else

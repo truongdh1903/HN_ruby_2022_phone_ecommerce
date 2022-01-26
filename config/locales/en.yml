@@ -109,10 +109,17 @@ en:
       your_review: "Your review"
       related_products: "Related Products"
       submit: "Submit"
+      reviewers: "reviewers"
+      delete: "Delete"
+      are_you_sure: "Are you sure!"
+      your_rating: "Your rating"
   comments:
-    create:
-      success_add_comment: "Add comment successfully"
-      fail_add_comment: "Add failed comment"
+    success_add_comment: "Add comment successfully"
+    fail_comment: "Comment processing failed"
+    success_vote: "More successful votes"
+    failed_vote: "More votes failed"
+    destroy:
+      deleted_success: "Comment deleted successfully"
   edit_user: "Edit profile"
   static_pages:
     home:
