@@ -24,4 +24,25 @@ module ApplicationHelper
     product
       .rates.average(:number_of_stars).round Settings.star_round_after_comma
   end
+
+  def display_star_html number_of_star
+    number_of_star = number_of_star.round
+    star_tags = html_escape("")
+    Settings.sum_star.times do |n|
+      star_tags << if n < number_of_star
+                     content_tag :i, "", class: "fa fa-star color-star"
+                   else
+                     content_tag :i, "", class: "fa fa-star color-black"
+                   end
+    end
+
+    star_tags
+  end
+
+  def gravatar_for user, options = {size: Settings.default_size_avatar}
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    gravatar_url = "#{Settings.gravatar_url}/#{gravatar_id}?s=#{options}"
+
+    image_tag gravatar_url, alt: user.name, class: "gravatar"
+  end
 end

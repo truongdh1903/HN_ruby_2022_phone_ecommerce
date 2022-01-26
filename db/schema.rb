@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2022_01_20_041619) do
-
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "desc"
@@ -120,6 +119,8 @@ ActiveRecord::Schema.define(version: 2022_01_20_041619) do
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "comment_id", null: false
+    t.index ["comment_id"], name: "index_rates_on_comment_id"
     t.index ["product_id"], name: "index_rates_on_product_id"
     t.index ["user_id"], name: "index_rates_on_user_id"
   end
@@ -153,6 +154,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_041619) do
   add_foreign_key "product_details", "product_sizes"
   add_foreign_key "product_details", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "rates", "comments"
   add_foreign_key "rates", "products"
   add_foreign_key "rates", "users"
 end

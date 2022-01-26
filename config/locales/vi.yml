@@ -66,6 +66,7 @@ vi:
   user_created: "Tạo tài khoản thành công"
   welcome_back: "Chào mừng trở lại!"
   hi: "Xin chào"
+  please_log_in: "Xin hãy đăng nhập!"
   products:
     index:
       all: "Tất cả"
@@ -82,6 +83,32 @@ vi:
       add_to_card: "Thêm vào giỏ"
       currency_unit_front: ""
       currency_unit_back: "VNĐ"
+    show:
+      invalid_address: "Địa chỉ không hợp lệ"
+      add_to_cart: "Thêm vào giỏ"
+      product_detail: "Chi tiết Sản phẩm"
+      color: "Màu sắc"
+      capacity: "Dung lượng pin"
+      screen: "Màn hình"
+      system: "Hệ điều hành"
+      rear_camera: "Camera sau"
+      front_camera: "Camera trước"
+      ram: "Bộ nhớ RAM"
+      cpu: "CPU"
+      sim: "SIM"
+      desc: "Mô tả"
+      rating: "Lượt đánh giá"
+      complete_danger: "Hoàn thành (nguy hiểm)"
+      title_comments: "Bình luận"
+      comments: "bình luận"
+      reviews: "Đánh giá"
+      your_review: "Đánh gía của bạn"
+      related_products: "Sản phẩm có liên quan"
+      submit: "Gửi"
+  comments:
+    create:
+      success_add_comment: "Thêm nhận xét thành công"
+      fail_add_comment: "Thêm nhật xét thất bại"
   edit_user: "Chỉnh sửa"
   update_your_profile: "Chỉnh sửa thông tin cá nhân"
   activerecord:
