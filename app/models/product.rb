@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  delegate :name, to: :category, prefix: :category, allow_nil: true
+
   scope :filter_by_product_size_id, (lambda do |product_size_id|
     joins(:product_details)
       .where(product_details: {product_size_id: product_size_id})

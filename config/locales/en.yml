@@ -68,6 +68,7 @@ en:
   user_created: "User created"
   welcome_back: "Welcome Back!"
   hi: "Hi"
+  please_log_in: "Please log in."
   products:
     index:
       all: "All"
@@ -84,6 +85,32 @@ en:
       add_to_card: "Add to cart"
       currency_unit_front: "$"
       currency_unit_back: ""
+    show:
+      invalid_address: "Invalid address"
+      add_to_cart: "Add to card"
+      product_detail: "Product Detail"
+      color: "Color"
+      capacity: "Capacity"
+      screen: "Screen"
+      system: "System"
+      rear_camera: "Read camera"
+      front_camera: "Front camera"
+      ram: "RAM"
+      cpu: "CPU"
+      sim: "SIM"
+      desc: "Description"
+      rating: "Rating"
+      complete_danger: "Complete (danger)"
+      title_comments: "Comments"
+      comments: "comments"
+      reviews: "Reviews"
+      your_review: "Your review"
+      related_products: "Related Products"
+      submit: "Submit"
+  comments:
+    create:
+      success_add_comment: "Add comment successfully"
+      fail_add_comment: "Add failed comment"
   edit_user: "Edit profile"
   static_pages:
     home:

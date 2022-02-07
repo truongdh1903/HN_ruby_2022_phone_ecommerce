@@ -12,7 +12,24 @@ class ProductsController < ApplicationController
     add_filter_options
   end
 
+  def show
+    @product = Product.includes(:product_details).find_by id: params[:id]
+    if @product && exists_product_details?
+      @pagy, @comments = pagy @product.comments.order_created_at,
+                              items: Settings.size_comments_product
+      @comment = @product.comments.build
+      create_entities_show_page
+    else
+      flash[:danger] = t ".invalid_address"
+      redirect_to root_url
+    end
+  end
+
   private
+  def exists_product_details?
+    @product.product_details.exists?
+  end
+
   def filtering_params params
     params.slice :product_color_id, :product_size_id, :max_cost, :min_cost
   end
@@ -25,6 +42,17 @@ class ProductsController < ApplicationController
       create_custom_options_costs Settings.max_costs_million, t(".less")
     @min_costs =
       create_custom_options_costs Settings.min_costs_million, t(".more")
+  end
+
+  def create_entities_show_page
+    @product_detail = if params[:product_detail_id].present?
+                        @product.product_details
+                                .find_by id: params[:product_detail_id]
+                      else
+                        @product.product_details.first
+                      end
+    @products_suggest = @product.category.products
+                                .top_sellers Settings.number_of_suggest
   end
 
   def is_valid_param? param

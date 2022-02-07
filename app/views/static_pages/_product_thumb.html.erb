@@ -1,11 +1,9 @@
 <div class="single-wid-product">
-  <a href="#">
-    <%= image_tag("product-thumb-1.jpg", class:"product-thumb") %>
-  </a>
-  <h2><a href="#"><%= product.name %></a></h2>
+  <%= link_to image_tag("product-thumb-1.jpg", class:"product-thumb"),
+              product_path(product)%>
+  <h2><%= link_to product.name, product_path(product) %></h2>
   <div class="product-wid-rating">
-    <%= get_avg_star product %>
-    <i class="fa fa-star"></i>
+    <%= display_star_html get_avg_star(product) %>
   </div>
   <div class="product-wid-price">
     <ins><%= get_avg_cost_product product %></ins>

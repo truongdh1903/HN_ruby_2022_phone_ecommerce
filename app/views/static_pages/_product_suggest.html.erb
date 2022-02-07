@@ -4,11 +4,11 @@
 
     <div class="product-hover">
       <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> <%= t "static_pages.home.add_to_card" %></a>
-      <a href="#" class="view-details-link"><i class="fa fa-link"></i> <%= t "static_pages.home.see_detail" %></a>
+      <a href="<%= product_path(product) %>" class="view-details-link"><i class="fa fa-link"></i> <%= t "static_pages.home.see_detail" %></a>
     </div>
   </div>
 
-  <h2><a href="#"><%= product.name %></a></h2>
+  <h2><%= link_to product.name, product_path(product) %></h2>
 
   <div class="product-carousel-price">
     <ins><%= get_avg_cost_product product %></ins>
