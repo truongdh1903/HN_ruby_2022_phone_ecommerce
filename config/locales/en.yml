@@ -63,7 +63,7 @@ en:
   create_account: "Create an Account!"
   have_account: "Already have an account? Login!"
   invalid_email: "Invalid email"
-  error: "Error"
+  error: "Some errors has expired"
   click_link_to_activate: "Click this link to activate account"
   user_created: "User created"
   welcome_back: "Welcome Back!"
@@ -88,6 +88,8 @@ en:
     show:
       invalid_address: "Invalid address"
       add_to_cart: "Add to card"
+      add_to_cart_success: "Add to card successfully"
+      add_to_cart_failed: "Add to card failed"
       product_detail: "Product Detail"
       color: "Color"
       capacity: "Capacity"

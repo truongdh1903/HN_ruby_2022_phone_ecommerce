@@ -33,12 +33,13 @@
                 <ins><%= display_cost @product_detail.cost %></ins>
               </div>
 
-              <form action="" class="cart">
-                <div class="quantity">
-                  <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                </div>
-                <button class="add_to_cart_button" type="submit"><%= t ".add_to_cart" %></button>
-              </form>
+              <%= form_for(Cart.new, url: carts_path) do |f| %>
+                <%= f.number_field :quantity, min: 1, max: 99, value: 1 %>
+                <%= f.number_field :product_detail_id, value: @product_detail.id,
+                  hidden: true %>
+                <%= f.submit t(".add_to_cart"), class: "btn btn-sm" %>
+              <% end %>
+              <br>
               <div class="product-details-select">
                 <% @product.product_details.each do |product_detail| %>
                   <%= link_to button_tag(

@@ -84,38 +84,12 @@
                     <th class="product-subtotal">Total</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr class="cart_item">
-                    <td class="product-remove">
-                      <a title="Remove this item" class="remove" href="#">×</a>
-                    </td>
-
-                    <td class="product-thumbnail">
-                      <a href="single-product.html">
-                        <%= image_tag "product-thumb-1.jpg", class: "shop_thumbnail", alt: "poster_1_up", width: "145", height: "145" %>
-                      </a>
-                    </td>
-
-                    <td class="product-name">
-                      <a href="single-product.html">Ship Your Idea</a>
-                    </td>
-
-                    <td class="product-price">
-                      <span class="amount">£15.00</span>
-                    </td>
-
-                    <td class="product-quantity">
-                      <div class="quantity buttons_added">
-                        <input type="button" class="minus" value="-">
-                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
-                        <input type="button" class="plus" value="+">
-                      </div>
-                    </td>
-
-                    <td class="product-subtotal">
-                      <span class="amount">£15.00</span>
-                    </td>
-                  </tr>
+                <tbody id="cart">
+                  <% if @cart %>
+                    <% @cart.each do |item| %>
+                      <%= render partial: "carts/cart", locals: {cart: item} %>
+                    <% end %>
+                  <% end %>
                   <tr>
                     <td class="actions" colspan="6">
                       <div class="coupon">
@@ -123,8 +97,7 @@
                         <input type="text" placeholder="Coupon code" value="" id="coupon_code" class="input-text" name="coupon_code">
                         <input type="submit" value="Apply Coupon" name="apply_coupon" class="button">
                       </div>
-                      <input type="submit" value="Update Cart" name="update_cart" class="button">
-                      <input type="submit" value="Checkout" name="proceed" class="checkout-button button alt wc-forward">
+                      <%= link_to "Checkout", checkout_path, class: "btn btn-primary" %>
                     </td>
                   </tr>
                 </tbody>
@@ -167,7 +140,14 @@
                   <tbody>
                     <tr class="cart-subtotal">
                       <th>Cart Subtotal</th>
-                      <td><span class="amount">£15.00</span></td>
+                      <td>
+                        <span class="amount">£
+                          <% if @cart %>
+                            <%= @cart.reduce(0) {|total, item| total
+                              + item["quantity"] * get_product_detail(item["product_detail_id"]).cost} %>
+                          <% end %>
+                        </span>
+                      </td>
                     </tr>
 
                     <tr class="shipping">
@@ -177,7 +157,16 @@
 
                     <tr class="order-total">
                       <th>Order Total</th>
-                      <td><strong><span class="amount">£15.00</span></strong> </td>
+                      <td>
+                        <strong>
+                          <span class="amount">£
+                            <% if @cart %>
+                              <%= @cart.reduce(0) {|total, item| total
+                              + item["quantity"] * get_product_detail(item["product_detail_id"]).cost} %>
+                            <% end %>
+                          </span>
+                        </strong>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

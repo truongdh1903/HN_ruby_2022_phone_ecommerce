@@ -50,7 +50,7 @@ vi:
   create_account: "Tạo tài khoản!"
   have_account: "Đã có tài khoản? Đăng nhập!"
   invalid_email: "Email không hợp lệ"
-  error: "Lỗi"
+  error: "Đã có lỗi xảy ra"
   invalid_activation_link: "Đường dẫn kích hoạt không hợp lệ!"
   account_activated: "Kích hoạt tài khoản thành công!"
   account_activation: "Kích hoạt tài khoản"
@@ -86,6 +86,8 @@ vi:
     show:
       invalid_address: "Địa chỉ không hợp lệ"
       add_to_cart: "Thêm vào giỏ"
+      add_to_cart_success: "Thêm vào giỏ thành công"
+      add_to_cart_failed: "Thêm vào giỏ thất bại"
       product_detail: "Chi tiết Sản phẩm"
       color: "Màu sắc"
       capacity: "Dung lượng pin"
