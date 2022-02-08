@@ -1,0 +1,45 @@
+<tr class="cart_item" id="<%= "cart_#{cart["id"]}" %>">
+  <td class="product-remove">
+    <%= link_to "x", delete_cart_path,
+      data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
+      method: :delete,
+      remote: true
+    %>
+  </td>
+
+  <td class="product-thumbnail">
+    <a href="single-product.html">
+      <%= image_tag "product-thumb-1.jpg", class: "shop_thumbnail", alt: "poster_1_up", width: "145", height: "145" %>
+    </a>
+  </td>
+
+  <td class="product-name"> 
+    <%= get_product_detail(cart["product_detail_id"]).product.name %>
+  </td>
+
+  <td class="product-price">
+    <span class="amount">$<%= @product_detail.cost %></span>
+  </td>
+
+  <td class="product-quantity">
+    <div class="quantity buttons_added">
+      <%= link_to "<button class='btn btn-primary btn-sm'>-</button>".html_safe,
+        minus_qty_cart_path,
+        data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
+        method: :put,
+        remote: true 
+      %>
+      <input type="number" size="2" class="input-sm" title="Qty" value="<%= cart["quantity"] %>" min="0" disabled>
+      <%= link_to "<button class='btn btn-primary btn-sm'>+</button>".html_safe, 
+        plus_qty_cart_path,
+        data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
+        method: :put,
+        remote: true
+      %>
+    </div>
+  </td>
+
+  <td class="product-subtotal">
+    <span class="amount">$<%= cart["quantity"] * @product_detail.cost %></span>
+  </td>
+</tr>

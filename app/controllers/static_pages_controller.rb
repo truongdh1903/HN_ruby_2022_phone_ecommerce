@@ -6,7 +6,9 @@ class StaticPagesController < ApplicationController
     @top_rates = Product.top_rates Settings.number_of_top
   end
 
-  def cart; end
+  def cart
+    @cart = session[:cart]
+  end
 
   def checkout; end
 
