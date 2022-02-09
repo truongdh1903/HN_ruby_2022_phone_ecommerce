@@ -33,6 +33,12 @@
                 <ins><%= display_cost @product_detail.cost %></ins>
               </div>
 
+              <%= form_for(Cart.new, url: carts_path) do |f| %>
+                <%= f.number_field :quantity, min: 1, max: 99, value: 1 %>
+                <%= f.number_field :product_detail_id, value: @product_detail.id,
+                  hidden: true %>
+                <%= f.submit t(".add_to_cart"), class: "btn btn-sm" %>
+              <% end %>
 
               <br>
               <div class="product-details-select">

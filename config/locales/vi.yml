@@ -145,6 +145,12 @@ vi:
       view_all: "Xem tất cả"
       top_rating: "Đánh gía cao"
       top_new: "Sản phẩm mới"
+  order:
+    success: "Đặt hàng thành công"
+    title: "Đặt hàng"
+  click_login: "Bấm vào đây để đăng nhập"
+  billing_details: "Chi tiết hóa đơn"
+  login_to_order: "Hãy đăng nhập trước khi đặt hàng!"
   pagy:
     nav:
       next: "Sau"
