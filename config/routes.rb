@@ -19,6 +19,6 @@ Rails.application.routes.draw do
     resources :carts, only: :create
     resources :products, only: %i(index show)
     resources :comments, only: %i(create destroy)
-    resources :rates, only: %i(create)
+    resources :rates, only: %i(create destroy)
   end
 end

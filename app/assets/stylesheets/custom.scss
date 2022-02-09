@@ -1491,7 +1491,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
   color: $yellow-dark;
 }
 
-.color-black{
+.color-black {
   color: gray;
 }
 
@@ -1551,7 +1551,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
   font-size: 13px;
 }
 
-.content-star{
+.content-star {
   margin-top: 2px;
   margin-bottom: 6px;
 }
@@ -1559,4 +1559,31 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 .pagination>li>a,
 .pagination>li>span {
   color: $blue-light;
+}
+
+.delete-comment {
+  color: red;
+  font-weight: bolder;
+}
+
+.pull-left-width {
+  width: 35px;
+  line-height: 1;
+}
+
+.pull-left-height {
+  height: 9px;
+  margin: 5px 0;
+}
+
+.pull-left-width-max {
+  width: 180px;
+}
+
+.progress-detail{
+  height:9px; margin:8px 0;
+}
+
+.pull-right-margin{
+  margin-left:10px;
 }
