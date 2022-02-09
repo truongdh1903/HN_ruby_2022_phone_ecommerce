@@ -9,6 +9,7 @@ class CartsController < ApplicationController
     @cart.each do |item|
       if item["product_detail_id"] == @cart_params["product_detail_id"].to_i
         @cur_item = item
+        break
       end
     end
     if @cur_item.present?
@@ -42,6 +43,7 @@ class CartsController < ApplicationController
   private
 
   def init_cart
+    session[:cart] ||= []
     @cart = session[:cart]
   end
 
@@ -54,8 +56,7 @@ class CartsController < ApplicationController
   end
 
   def cart_params
-    params.require(:cart).permit :user_id, :product_detail_id, :date_add,
-                                 :quantity
+    params.require(:cart).permit :product_detail_id, :quantity
   end
 
   def reset

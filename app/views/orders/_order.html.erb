@@ -1,0 +1,22 @@
+<%= form_for(Order.new, url: orders_path) do |f| %>
+  <%= f.label :customer_name %>
+  <% if current_user %>
+    <%= f.text_field :customer_name, class: "form-control",
+      value: current_user.name %>
+    <%= f.label :delivery_address %>
+    <%= f.text_field :delivery_address, class: "form-control",
+      value: current_user.address %>
+    <%= f.label :delivery_phone %>
+    <%= f.text_field :delivery_phone, class: "form-control",
+      value: current_user.phone %>
+  <% else %>
+    <%= f.text_field :customer_name, class: "form-control"%>
+    <%= f.label :delivery_address %>
+    <%= f.text_field :delivery_address, class: "form-control" %>
+    <%= f.label :delivery_phone %>
+    <%= f.text_field :delivery_phone, class: "form-control" %>
+  <% end %>
+  <%= f.label :order_note %>
+  <%= f.text_area :note, size: "50x5", class: "form-control" %>
+  <%= f.submit t("order.title"), disabled: @cart.empty? %>
+<% end %>

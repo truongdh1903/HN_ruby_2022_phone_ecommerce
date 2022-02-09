@@ -138,3 +138,9 @@ en:
       view_all: "View All"
       top_rating: "Top Rating"
       top_new: "Top New"
+  order:
+    success: "Order successfully"
+    title: "Order"
+  click_login: "Click here to login"
+  billing_details: "Billing details"
+  login_to_order: "Please login before order!"
