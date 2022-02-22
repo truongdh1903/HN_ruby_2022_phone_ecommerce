@@ -4,10 +4,11 @@ class Order < ApplicationRecord
   validates :delivery_address, presence: true
   validates :delivery_phone, presence: true,
                              length: {in: Settings.phone_len_range}
-  before_create do
-    self.status = Order.statuses[:pending]
-  end
+  before_create :set_status
 
   enum status: {pending: 0, accept: 1, reject: 3, waiting: 5,
-                shipped: 7, cancel: 9}
+                shipped: 7, cancel: 9}, _suffix: true
+  def set_status
+    self.status = Order.statuses[:pending]
+  end
 end

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_02_07_041952) do
 
-  create_table "carts", charset: "utf8mb4", force: :cascade do |t|
+  create_table "carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity", limit: 2
     t.datetime "date_add"
     t.bigint "user_id", null: false
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "categories", charset: "utf8mb4", force: :cascade do |t|
+  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "likes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "messages", charset: "utf8mb4", force: :cascade do |t|
+  create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
     t.integer "user_sender_id"
     t.integer "user_receiver_id"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["user_sender_id"], name: "index_messages_on_user_sender_id"
   end
 
-  create_table "order_details", charset: "utf8mb4", force: :cascade do |t|
+  create_table "order_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity"
     t.decimal "cost_product", precision: 10
     t.bigint "order_id", null: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["product_detail_id"], name: "index_order_details_on_product_detail_id"
   end
 
-  create_table "orders", charset: "utf8mb4", force: :cascade do |t|
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "delivery_address"
     t.string "delivery_phone"
     t.integer "status", limit: 1
@@ -83,14 +83,14 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "product_colors", charset: "utf8mb4", force: :cascade do |t|
+  create_table "product_colors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "product_details", charset: "utf8mb4", force: :cascade do |t|
+  create_table "product_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "screen"
     t.string "system"
     t.string "rear_camera"
@@ -111,14 +111,14 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["product_size_id"], name: "index_product_details_on_product_size_id"
   end
 
-  create_table "product_sizes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "product_sizes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "products", charset: "utf8mb4", force: :cascade do |t|
+  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.bigint "category_id", null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
-  create_table "rates", charset: "utf8mb4", force: :cascade do |t|
+  create_table "rates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "number_of_stars", limit: 1
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_041952) do
     t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.string "email"
