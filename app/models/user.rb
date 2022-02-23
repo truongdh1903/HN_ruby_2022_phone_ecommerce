@@ -64,11 +64,13 @@ class User < ApplicationRecord
   end
 
   def send_activation_email
-    UserMailer.account_activation(self).deliver_now
+    SendEmailActivationJob.set(wait: 1.minute)
+                          .perform_later self.id, self.activation_token
   end
 
   def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
+    SendEmailResetPasswordJob.set(wait: 1.minute)
+                             .perform_later self.id, self.activation_token
   end
 
   def password_reset_expired?
