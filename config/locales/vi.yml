@@ -1,6 +1,7 @@
 vi:
   base_title_page: "Bán điện thoại"
   login: "Đăng nhập"
+  logout: "Đăng xuất"
   home: "Trang chủ"
   header:
     my_account: "Tài khoản của tôi"
@@ -125,9 +126,12 @@ vi:
       user:
         name: "Tên"
         address: "Địa chỉ"
+        desc: "Mô tả"
         phone: "Số điện thoại"
         password: "Mật khẩu"
+        current_password: "Mật khẩu hiện tại"
         password_confirmation: "Xác nhận mật khẩu"
+        remember_me: "Nhớ tài khoản"
   static_pages:
     home:
       name: "Trang chủ"
@@ -155,3 +159,9 @@ vi:
     nav:
       next: "Sau"
       prev: "Trước"
+  sign_in_with: "Đăng nhập với"
+  update: "Cập nhật"
+  want_to_delete_account: "Bạn muốn xóa tài khoản"
+  cancel_my_account: "Xóa tài khoản"
+  back: "Quay lại"
+  wait_confirm_email: "Hiện đang chờ xác nhận cho: "

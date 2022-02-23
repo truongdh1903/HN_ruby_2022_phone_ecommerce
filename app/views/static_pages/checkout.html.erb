@@ -73,7 +73,7 @@
           <div class="woocommerce">
             <% if !current_user %>
             <div class="woocommerce-info">Returning customer?
-              <%= link_to t("click_login"), login_path, class: "showlogin" %>
+              <%= link_to t("click_login"), new_user_session_path, class: "showlogin" %>
             </div>
             <% end %>
             <form id="login-form-wrap" class="login collapse" method="post">
