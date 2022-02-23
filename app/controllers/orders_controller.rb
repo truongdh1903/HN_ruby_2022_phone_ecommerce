@@ -1,10 +1,6 @@
 class OrdersController < ApplicationController
   before_action :check_auth
 
-  def new
-    @order = Order.new
-  end
-
   def create
     init_order
     create_order_detail
@@ -12,8 +8,8 @@ class OrdersController < ApplicationController
       @order.save!
     end
     handle_success_create_order_detail
-  rescue StandardError => e
-    handle_exception e
+  rescue StandardError
+    handle_exception
   end
 
   private
@@ -30,7 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit :name, :delivery_phone, :delivery_address,
+    params.require(:order).permit :delivery_phone, :delivery_address,
                                   :customer_name, :note
   end
 
@@ -51,8 +47,7 @@ class OrdersController < ApplicationController
     redirect_to root_url
   end
 
-  def handle_exception exception
-    log exception
+  def handle_exception
     flash.now[:danger] = t "error"
     redirect_back fallback_location: root_url
   end

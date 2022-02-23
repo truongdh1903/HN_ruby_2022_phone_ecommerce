@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   validates :address, presence: true
   validates :name, presence: true
-  validates :phone, presence: true, numericality: true,
+  validates :phone, presence: true,
                     length: {in: Settings.phone_len_range}
   validates :email, presence: true, length: {maximum: Settings.email_max_len},
     format: {with: Settings.email_regex},
