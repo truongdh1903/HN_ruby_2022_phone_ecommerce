@@ -13,6 +13,7 @@ module ApplicationHelper
   end
 
   def display_cost cost
+    cost ||= Settings.default_cost
     t("products.index.currency_unit_front") +
       number_with_delimiter(cost.round, delimiter: Settings.currency_break) +
       t("products.index.currency_unit_back")
@@ -44,5 +45,15 @@ module ApplicationHelper
     gravatar_url = "#{Settings.gravatar_url}/#{gravatar_id}?s=#{options}"
 
     image_tag gravatar_url, alt: user.name, class: "gravatar"
+  end
+
+  def display_first_image_product product, size, class_html = ""
+    product.product_details.each do |product_detail|
+      if product_detail.image.attached?
+        return image_tag product_detail.display_image, size: size,
+                         class: class_html
+      end
+    end
+    image_tag "logo.png", size: size, class: class_html
   end
 end

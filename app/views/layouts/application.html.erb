@@ -3,7 +3,7 @@
 
   <head>
     <title>
-      <%= full_title(yield(:title)) %>
+      <%= full_title yield(:title) %>
     </title>
     <%= render "layouts/rails_default" %>
     <%= render "layouts/shim" %>
@@ -22,7 +22,7 @@
       <% end %>
     </div>
     <%= yield %>
-    
+
     <%= render "layouts/footer" %>
   </body>
 </html>

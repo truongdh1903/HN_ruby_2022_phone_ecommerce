@@ -1,0 +1,51 @@
+<br>
+<%= link_to button_to(t("admin.products.index.new_button")),
+            new_admin_product_path %>
+<br>
+<h2 class="related-products-title">
+  <%= t "admin.products.index.name_view" %>
+</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "admin.products.show.index" %></th>
+      <th><%= t "admin.products.form.category" %></th>
+      <th><%= t "ransack.attributes.product.name" %></th>
+      <th class="width-column-image" >
+        <%= t "admin.products.form.image" %>
+        </th>
+      <th class="width-column-desc" ><%= t "ransack.attributes.product.desc" %></th>
+      <th><%= t "admin.products.index.sum_quantity" %></th>
+      <th><%= t "ransack.attributes.product.created_at" %></th>
+      <th colspan="2"><%= t "admin.products.index.handle" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each_with_index do |product, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= product.category.name %></td>
+        <td><%= product.name %></td>
+        <td><%= display_first_image_product product,
+                                            Settings.size_image_big %></td>
+        <td><%= product.desc %></td>
+        <td><%= product.product_details.sum(:quantity) %></td>
+        <td>
+          <%= product.created_at.strftime(t("admin.format_time")) %>
+        </td>
+        <td><%= link_to t("admin.button.show_user"), product %></td>
+        <td><%= link_to t("admin.products.index.details"),
+                        admin_product_path(product) %></td>
+        <td><%= link_to t("admin.button.edit"),
+                        edit_admin_product_path(product) %></td>
+        <td><%= link_to t("admin.button.destroy"),
+                        admin_product_path(product),
+                        method: :delete, data: {confirm: t("admin.are_you_sure") }%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%== pagy_bootstrap_nav @pagy %>
+<br>

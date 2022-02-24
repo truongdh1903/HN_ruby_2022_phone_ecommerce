@@ -23,5 +23,10 @@ Rails.application.routes.draw do
     resources :comments, only: %i(create destroy)
     resources :orders, only: %i(new create)
     resources :rates, only: %i(create destroy)
+    namespace :admin do
+      get "static_pages/home"
+      root "static_pages#home"
+      resources :products
+    end
   end
 end

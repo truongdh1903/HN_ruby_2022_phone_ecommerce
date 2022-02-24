@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="product-content-right">
+      <div class="woocommerce">
+        <div class="checkout">
+          <div id="customer_details" class="col2-set">
+            <div class="col-md-6 ">
+              <div class="product-images">
+                <div class="product-main-img flex-center">
+                  <%= display_first_image_product @product,
+                                                  Settings.size_image_medium_more %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 ">
+              <div class="woocommerce-billing-fields">
+                <h3><%= @product.name %></h3>
+
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td><%= t "admin.products.form.name" %>: </td>
+                      <td>
+                        <%= @product.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.products.form.desc" %>: </td>
+                      <td>
+                        <%= @product.desc %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.products.form.category" %>:</td>
+                      <td>
+                        <%= @product.category.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.products.form.created_at" %>:</td>
+                      <td>
+                        <%= @product.created_at.strftime(t("admin.format_time")) %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.products.form.updated_at" %>:</td>
+                      <td>
+                        <%= @product.updated_at.strftime(t("admin.format_time")) %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="flex-center" >
+  <%== pagy_bootstrap_nav @pagy %>
+</div>
+<%= link_to button_to(t("admin.button.edit")),
+            edit_admin_product_path(@product) %>
+<br>
+<%= link_to button_to(t("admin.button.back")),
+            admin_products_path %>
+<br>
