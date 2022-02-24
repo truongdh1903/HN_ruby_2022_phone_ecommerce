@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user!, only: :checkout
   before_action :init_cart, only: %i(cart checkout)
 
   def home

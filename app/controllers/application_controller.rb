@@ -2,14 +2,9 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   include SessionsHelper
   include ProductHelper
+
   before_action :set_locale
-
-  def logged_in_user
-    return if logged_in?
-
-    flash[:danger] = t "please_log_in"
-    redirect_to login_url
-  end
+  before_action :permit_params, if: :devise_controller?
 
   private
   def set_locale
@@ -18,5 +13,10 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def permit_params
+    devise_parameter_sanitizer.permit :sign_up, keys: User::PROPERTIES
+    devise_parameter_sanitizer.permit :account_update, keys: User::PROPERTIES
   end
 end

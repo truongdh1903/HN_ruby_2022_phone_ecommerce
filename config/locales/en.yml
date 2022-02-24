@@ -144,3 +144,4 @@ en:
   click_login: "Click here to login"
   billing_details: "Billing details"
   login_to_order: "Please login before order!"
+  wait_confirm_email: "Currently waiting confirmation for: "
