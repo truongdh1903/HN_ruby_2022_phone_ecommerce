@@ -11,37 +11,11 @@ RSpec.describe OrdersController, type: :controller do
     should use_before_action(:check_auth)
   }
 
-  describe "#check_auth" do
-    context "with user" do
-      before do
-        session[:user_id] = user.id
-        session[:cart] = []
-        session[:cart] << {"product_detail_id" => product_detail.id, "quantity"=> 1}
-        current_user = User.find_by id: session[:user_id]
-        @params = {
-          order: {
-            customer_name: "Tr",
-            delivery_address: "DH",
-            delivery_phone: "0961606535",
-            note: ""
-          }
-        }
-      end
-      it {
-        expect{post :create, params: @params}.to change(Order, :count).by(1)
-      }
-    end
-    context "without user" do
-      before do
-        current_user = nil
-        post :create
-      end
-      it {
-        expect(flash[:warning]).to match I18n.t("login_to_order")
-        should redirect_to login_url
-      }
-    end
-  end 
+  before do
+    sign_in user
+  end
+
+
 
   describe "POST #create" do
     before do
@@ -69,10 +43,7 @@ RSpec.describe OrdersController, type: :controller do
         @cart[0]["product_detail_id"] = 2
         post :create, params: @params
       end
-      it "should flash error" do
-        expect(flash[:danger]).to match I18n.t("error")
-      end
-      
+
       it "should redirect to root path" do
         expect(response).to redirect_to root_path
       end
@@ -83,11 +54,11 @@ RSpec.describe OrdersController, type: :controller do
         @params[:order][:delivery_phone] = "096"
         post :create, params: @params
       end
-      
+
       it "should flash error" do
         expect(flash[:danger]).to match I18n.t("error")
       end
-      
+
       it "should redirect to root path" do
         expect(response).to redirect_to root_path
       end

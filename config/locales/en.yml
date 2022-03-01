@@ -1,8 +1,11 @@
 en:
   activate: "Activate"
   base_title_page: "Phone ecommerce"
+  admin_page: "Admin page"
   login: "Login"
   home: "Home"
+  not_admin: "You do not have administrator rights"
+  must_log_in: "You need to login to function"
   header:
     my_account: "My Account"
     wishlist: "Wishlist"
@@ -145,3 +148,96 @@ en:
   billing_details: "Billing details"
   login_to_order: "Please login before order!"
   wait_confirm_email: "Currently waiting confirmation for: "
+  admin:
+    format_time: "%d/%m/%Y"
+    are_you_sure: "Are you sure?"
+    header:
+      product: "Products"
+      categories: "Categories"
+      orders: "Orders"
+      chart: "Chart"
+    home:
+      name_view: "Home page"
+    products:
+      created_success: "Product was successfully created."
+      updated_success: "Product was successfully updated."
+      destroyed_success: "Product was successfully destroyed."
+      fail_product: "Processing of product failed!"
+      ordered_product: "Ordered products cannot be deleted"
+      form:
+        name: "Name"
+        desc: "Description"
+        categories: "Categories"
+        category: "Category"
+        submit: "Submit"
+        image: "Image"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        product_details: "Product Details"
+        add_product_detail: "Add product detail"
+        remove: "Remove"
+        min_cost: "Min cost"
+        max_cost: "Max cost"
+      edit:
+        name_view: "Editing Product"
+      index:
+        details: "Details"
+        handle: "Handle"
+        name_view: "Admin Products"
+        new_button: "New Admin Product"
+        sum_quantity: "Sum Quantity"
+      new:
+        name_view: "New Admin Product"
+      show:
+        index: "Index"
+        handle: "Handle"
+        new_button: "New Product Detail"
+    product_details:
+      valid_image:
+        format: "must be a valid image format"
+        size: "should be less than 5MB"
+      fail_product_detail: "Processing of product detail failed!"
+      created_success: "Product detail was successfully created."
+      updated_success: "Product detail was successfully updated."
+      destroyed_success: "Product detail was successfully destroyed."
+      form:
+        screen: "Screen"
+        system: "System"
+        rear_camera: "Rear camera"
+        front_camera: "Front camera"
+        ram: "RAM"
+        cpu: "CPU"
+        sim: "SIM"
+        battery_capacity: "Battery capacity"
+        quantity: "Quantity"
+        cost: "Cost"
+        image: "Image"
+        fix_image: "Add a photo to edit the photo above"
+        color: "Color"
+        size: "Size"
+        submit: "Submit"
+        capacity: "Capacity"
+    button:
+      show: "Show"
+      back: "Back"
+      edit: "Edit"
+      destroy: "Destroy"
+      show_user: "Show"
+  ransack:
+    or: "or"
+    search: "search"
+    predicates:
+      cont: "contains"
+      eq: "equals"
+      date_equals: "equals"
+    models:
+      product: "Product"
+      category: "Category"
+    attributes:
+      product:
+        name: "Name Product"
+        desc: "Description"
+        created_at: "Create at"
+        category_name: "Category name"
+      category:
+        name: "name"

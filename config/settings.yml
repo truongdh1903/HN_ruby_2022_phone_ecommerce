@@ -25,3 +25,8 @@ default_size_avatar: 80
 small_size_avatar: 40
 gravatar_url: "https://secure.gravatar.com/avatar"
 all_percent: 100
+size_image_medium: 300
+size_image_medium_more: 350
+size_image_big: 500
+accept_file_model: ["image/jpeg", "image/gif", "image/png"]
+maximum_size_file: 5

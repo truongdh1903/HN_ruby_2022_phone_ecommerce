@@ -36,11 +36,9 @@ class Product < ApplicationRecord
       .order("sum_order DESC")
       .limit(size)
   end)
-
   scope :top_new, (lambda do |size|
     order(created_at: :desc).limit(size)
   end)
-
   scope :top_rates, (lambda do |size|
     joins(:rates)
       .select("products.*, AVG(number_of_stars) as avg_stars")

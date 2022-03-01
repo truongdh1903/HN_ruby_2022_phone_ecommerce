@@ -918,6 +918,7 @@ ol.slide-indicators li.active {
 input[type='text'],
 input[type='password'],
 input[type='email'],
+input[type='number'],
 textarea {
   border: 1px solid $white-d;
   padding: 10px;
@@ -1438,10 +1439,10 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 }
 
 .single-shop-product {
-  margin-bottom: 50px
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-//
 .btn-details-select {
   margin-bottom: 4px;
 }
@@ -1465,7 +1466,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 
 .select-filter {
   padding-left: 0;
-  padding-right: 5px;
+  padding-right: 2px;
 }
 
 .submit-filter {
@@ -1586,4 +1587,47 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 
 .pull-right-margin{
   margin-left:10px;
+}
+
+input[type="search"]{
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.field-search{
+  width: auto;
+}
+
+.product-detail-fields{
+  border: 1px solid #0000001c;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.text-fix-image{
+  margin:1px;
+}
+
+.width-two-button{
+  width: 50px;
+}
+
+.width-column-image{
+  width: 15%;
+}
+
+.width-column-desc{
+  width: 30%;
+}
+.max-size-image{
+  max-width: 150px;
+  max-height: 150px;
 }

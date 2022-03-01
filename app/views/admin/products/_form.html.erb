@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="product-content-right">
+      <div class="woocommerce">
+        <%= form_with url: yield(:url),
+                      model: product,
+                      class: "checkout" do |form| %>
+          <div id="customer_details" class="col2-set flex-center ">
+            <div class="col-md-6 .col-md-offset-3">
+              <div class="woocommerce-billing-fields">
+                <%= render "shared/error_messages", object: form.object %>
+
+                <p class="form-row form-row-last validate-required">
+                  <%= form.label :name, t("admin.products.form.name") %>
+                  <%= form.text_field :name, class: "input-text " %>
+                </p>
+                <p class="form-row form-row-last validate-required">
+                  <%= form.label :desc, t("admin.products.form.desc") %>
+                  <%= form.text_area :desc, class: "input-text " %>
+                </p>
+                <p class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
+                  <%= form.label :category_id, t("admin.products.form.categories") %>
+                  <%= form.select :category_id,
+                  options_for_select(
+                    get_selects_from_entities(Category.all)
+                  ),
+                  {:class => "country_to_state country_select"} %>
+                </p>
+
+                <div class="actions flex-center">
+                  <%= form.submit t("admin.products.form.submit") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
