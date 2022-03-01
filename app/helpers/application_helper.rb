@@ -54,6 +54,16 @@ module ApplicationHelper
                          class: class_html
       end
     end
-    image_tag "logo.png", size: size, class: class_html
+    image_tag "empty_image.png", size: size, class: class_html
+  end
+
+  def display_image product_detail, size, class_html = ""
+    if product_detail.image.attached?
+      image_tag product_detail.display_image, size: size,
+      class: class_html
+    else
+      image_tag "empty_image.png", size: size,
+      class: class_html
+    end
   end
 end

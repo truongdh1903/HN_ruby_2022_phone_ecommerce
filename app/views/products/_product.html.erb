@@ -1,7 +1,7 @@
 <div class="col-md-3 col-sm-6">
-  <div class="single-shop-product">
+  <div class="single-shop-product ">
     <div class="product-upper">
-      <%= image_tag "product-2.jpg" %>
+      <%= display_first_image_product product, Settings.size_image_medium %>
     </div>
     <h2><%= link_to product.name, product_path(product) %></h2>
     <div class="product-carousel-price">

@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::BaseController
-  before_action :set_admin_product, except: %i(index new create)
+  before_action :find_product, except: %i(index new create)
   before_action :check_product_orders, only: :destroy
 
   def index
@@ -50,7 +50,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   private
-  def set_admin_product
+  def find_product
     return if @product = Product.find_by(id: params[:id])
 
     handle_product_fail

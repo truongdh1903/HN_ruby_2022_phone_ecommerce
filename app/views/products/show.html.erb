@@ -17,10 +17,10 @@
             <div class="col-sm-4">
               <div class="product-images">
                 <div class="product-main-img flex-center">
-                  <% if @product.product_details.first.image %>
-                    <%= image_tag "product-1.jpg" %>
+                  <% if @product_detail.image.attached? %>
+                    <%= image_tag @product_detail.display_image %>
                   <% else %>
-                    <%= image_tag "product-2.jpg" %>
+                    <%= display_first_image_product @product, Settings.size_image_big %>
                   <% end %>
                 </div>
               </div>

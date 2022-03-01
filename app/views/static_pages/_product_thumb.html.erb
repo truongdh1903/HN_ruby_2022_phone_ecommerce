@@ -1,6 +1,6 @@
 <div class="single-wid-product">
-  <%= link_to image_tag("product-thumb-1.jpg", class:"product-thumb"),
-              product_path(product)%>
+  <%= link_to display_first_image_product(product, Settings.size_image_medium, "product-thumb"),
+              product_path(product) %>
   <h2><%= link_to product.name, product_path(product) %></h2>
   <div class="product-wid-rating">
     <%= display_star_html get_avg_star(product) %>

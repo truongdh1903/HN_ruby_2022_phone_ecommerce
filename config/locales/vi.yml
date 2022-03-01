@@ -184,6 +184,7 @@ vi:
       destroyed_success: "Sản phẩm đã được xóa thành công."
       fail_product: "Xử lý sản phẩm thất bại!"
       ordered_product: "Sản phẩm đã được đặt, không thể xóa"
+      has_ordered: "Sản phẩm đã được đặt hàng, không thể xóa"
       form:
         name: "Tên sản phẩm"
         desc: "Mô tả"
