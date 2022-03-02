@@ -1,9 +1,11 @@
 class Admin::ProductsController < Admin::BaseController
+  include Admin::ProductHelper
   before_action :find_product, except: %i(index new create)
   before_action :check_product_orders, only: :destroy
 
   def index
-    @products = Product.order_created_at
+    @query = Product.ransack params[:query]
+    @products = @query.result.includes :product_details, :category
     @pagy, @products = pagy @products
   end
 
@@ -57,7 +59,12 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def product_params
-    params.require(:product).permit :name, :desc, :category_id
+    params.require(:product).permit(
+      :name,
+      :desc,
+      :category_id,
+      product_details_attributes: ProductDetail::PRODUCT_DETAIL_ATTRS
+    )
   end
 
   def handle_product_fail

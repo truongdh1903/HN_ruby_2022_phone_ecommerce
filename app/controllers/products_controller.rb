@@ -1,13 +1,14 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order_created_at
+    @query = Product.order_created_at.ransack params[:query]
+    @products = @query.result.includes :product_details, :category
+    @pagy, @products = pagy @products
+
     filtering_params(params).each do |key, value|
       if is_valid_param? value
         @products = @products.public_send "filter_by_#{key}", value
       end
     end
-    @products = @products.search params[:key] if params[:key].present?
-    @pagy, @products = pagy @products
 
     add_filter_options
   end
