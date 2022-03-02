@@ -25,7 +25,7 @@
   <tbody>
     <% @products.each_with_index do |product, index| %>
       <tr>
-        <td><%= index %></td>
+        <td><%= index + 1 %></td>
         <td><%= product.category.name %></td>
         <td><%= product.name %></td>
         <td><%= display_first_image_product product,

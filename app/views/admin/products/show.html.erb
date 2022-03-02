@@ -59,6 +59,49 @@
   </div>
 </div>
 <hr>
+<%= link_to button_to(t("admin.products.show.new_button")),
+            new_admin_product_detail_path(:product_id => @product.id) %>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "admin.products.show.index" %></th>
+      <th><%= t "admin.product_details.form.image" %></th>
+      <th><%= t "admin.product_details.form.quantity" %></th>
+      <th><%= t "admin.product_details.form.cost" %></th>
+      <th><%= t "admin.product_details.form.color" %></th>
+      <th><%= t "admin.product_details.form.size" %></th>
+      <th colspan="3"><%= t "admin.products.show.handle" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product.product_details.each_with_index do |product_detail, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td>
+          <div class="max-size-image" >
+            <%= display_image product_detail, Settings.size_image_medium %>
+          </div>
+        </td>
+        <td><%= product_detail.quantity %></td>
+        <td><%= display_cost product_detail.cost %></td>
+
+        <td><%= product_detail.product_color.name%></td>
+        <td><%= product_detail.product_size.name %></td>
+        <td><%= link_to t("admin.button.show"),
+                        admin_product_detail_path(product_detail) %></td>
+        <td><%= link_to t("admin.button.edit"),
+                        edit_admin_product_detail_path(product_detail) %></td>
+        <td><%= link_to t("admin.button.destroy"),
+                        admin_product_detail_path(product_detail),
+                        method: :delete,
+                        data: {confirm: t("admin.are_you_sure")} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
 <div class="flex-center" >
   <%== pagy_bootstrap_nav @pagy %>
 </div>

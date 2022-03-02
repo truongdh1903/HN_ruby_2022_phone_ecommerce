@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="product-content-right">
+      <div class="woocommerce">
+        <div class="checkout">
+          <div id="customer_details" class="col2-set flex-center ">
+            <div class="col-md-6 .col-md-offset-3">
+              <div class="woocommerce-billing-fields">
+                <h3><%= @product_detail.product.name %></h3>
+                <% if @product_detail.image.attached? %>
+                  <%= image_tag @product_detail.display_image %>
+                  <br>
+                  <br>
+                <% end %>
+
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td><%= t "admin.product_details.form.color" %></td>
+                      <td>
+                        <%= @product_detail.product_color.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.capacity" %></td>
+                      <td>
+                        <%= @product_detail.product_size.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.quantity" %></td>
+                      <td>
+                        <%= @product_detail.quantity %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.cost" %></td>
+                      <td>
+                        <%= display_cost @product_detail.cost %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.battery_capacity" %></td>
+                      <td>
+                        <%= @product_detail.battery_capacity %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.screen" %> </td>
+                      <td>
+                        <%= @product_detail.screen %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.system" %></td>
+                      <td>
+                        <%= @product_detail.system %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.rear_camera" %></td>
+                      <td>
+                        <%= @product_detail.rear_camera %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.front_camera" %></td>
+                      <td>
+                        <%= @product_detail.front_camera %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.ram" %></td>
+                      <td>
+                        <%= @product_detail.RAM %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.cpu" %></td>
+                      <td>
+                        <%= @product_detail.CPU %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.product_details.form.sim" %></td>
+                      <td>
+                        <%= @product_detail.SIM %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <%= link_to button_to(t("admin.button.edit")),
+                            edit_admin_product_detail_path(@product_detail) %>
+                <br>
+                <%= link_to button_to(t("admin.button.back")),
+                            admin_product_path(@product_detail.product) %>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

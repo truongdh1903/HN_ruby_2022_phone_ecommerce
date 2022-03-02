@@ -200,6 +200,7 @@ en:
       created_success: "Product detail was successfully created."
       updated_success: "Product detail was successfully updated."
       destroyed_success: "Product detail was successfully destroyed."
+      has_ordered: "The product has been ordered, cannot be deleted"
       form:
         screen: "Screen"
         system: "System"

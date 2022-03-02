@@ -13,6 +13,9 @@
             <% if current_user %>
               <li><%= link_to t("header.my_account"), edit_user_registration_path %></li>
               <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to t("admin_page"), admin_root_path %></li>
+              <% end %>
             <% else %>
               <li><%= link_to t("login"), new_user_session_path %></li>
               <li><%= link_to t("signup"), new_user_registration_path %></li>
@@ -84,9 +87,6 @@
         <ul class="nav navbar-nav">
           <li>
             <%= link_to t("home"), root_path, class: "active" %>
-          </li>
-          <li>
-            <%= link_to t("header.shop_page"), shop_path %>
           </li>
           <li>
             <%= link_to t("header.product"), products_path %>

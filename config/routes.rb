@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get "static_pages/home"
       root "static_pages#home"
       resources :products
+      resources :product_details, except: :index
     end
   end
 end

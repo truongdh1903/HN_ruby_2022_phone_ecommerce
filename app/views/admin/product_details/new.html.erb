@@ -1,0 +1,14 @@
+<% provide :url, admin_product_details_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="product-content-right">
+      <div class="woocommerce">
+        <%= render "form", product_detail: @product_detail %>
+      </div>
+      <br>
+      <%= link_to button_to(t("admin.button.back")),
+                  admin_product_path(@product) %>
+      <br>
+    </div>
+  </div>
+</div>

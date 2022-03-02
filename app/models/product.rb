@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :rates, dependent: :destroy
   has_many :likes, dependent: :destroy
+  validates :name, presence: true
 
   delegate :name, to: :category, prefix: :category, allow_nil: true
 
