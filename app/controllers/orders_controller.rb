@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :check_auth
+  before_action :authenticate_user!
 
   def create
     init_order
-    create_order_detail
     ActiveRecord::Base.transaction do
       @order.save!
+      CreateOrderDetailJob.perform_now @order, session[:cart]
     end
     handle_success_create_order_detail
   rescue StandardError
@@ -14,13 +14,6 @@ class OrdersController < ApplicationController
 
   private
 
-  def check_auth
-    return if current_user
-
-    flash[:warning] = t "login_to_order"
-    redirect_to login_url
-  end
-
   def init_order
     @order = current_user.orders.new order_params
   end
@@ -28,18 +21,6 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit :delivery_phone, :delivery_address,
                                   :customer_name, :note
-  end
-
-  def create_order_detail
-    @cart = session[:cart]
-    @cart.each do |item|
-      @product_detail = ProductDetail.find_by id: item["product_detail_id"]
-      @order.order_details.build(
-        quantity: item["quantity"],
-        cost_product: @product_detail.cost,
-        product_detail_id: @product_detail.id
-      )
-    end
   end
 
   def handle_success_create_order_detail

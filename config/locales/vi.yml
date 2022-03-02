@@ -68,6 +68,7 @@ vi:
   account_not_activated: "Tài khoản chưa được kích hoạt"
   click_link_to_activate: "Nhấn vào link để kích hoạt tài khoản"
   user_created: "Tạo tài khoản thành công"
+  welcome: "Xin chào"
   welcome_back: "Chào mừng trở lại!"
   hi: "Xin chào"
   please_log_in: "Xin hãy đăng nhập!"
