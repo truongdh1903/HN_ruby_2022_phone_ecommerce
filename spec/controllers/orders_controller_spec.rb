@@ -37,7 +37,7 @@ RSpec.describe OrdersController, type: :controller do
         should redirect_to "/users/sign_in"
       }
     end
-  end 
+  end
 
   describe "POST #create" do
     before do

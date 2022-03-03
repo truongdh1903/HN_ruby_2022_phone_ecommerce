@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   has_many :likes, dependent: :destroy
   validates :name, presence: true
 
+  accepts_nested_attributes_for :product_details, reject_if: :all_blank,
+                                                  allow_destroy: true
+
   delegate :name, to: :category, prefix: :category, allow_nil: true
 
   scope :filter_by_product_size_id, (lambda do |product_size_id|
@@ -28,7 +31,6 @@ class Product < ApplicationRecord
       .group("products.id")
       .having("avg(product_details.cost) >= ?", min_cost)
   end)
-  scope :search, ->(key){where("LOWER(name) like ?", "%#{key.downcase}%")}
   scope :order_created_at, ->{order(created_at: :desc)}
   scope :top_sellers, (lambda do |size|
     joins(product_details: :order_details)
@@ -47,4 +49,12 @@ class Product < ApplicationRecord
       .order(avg_stars: :desc)
       .limit(size)
   end)
+
+  def self.ransackable_scopes _ = nil
+    %i(filter_by_max_cost filter_by_min_cost)
+  end
+
+  ransacker :created_at, type: :string do
+    Arel.sql "date(products.created_at)"
+  end
 end

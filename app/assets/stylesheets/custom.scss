@@ -1589,7 +1589,9 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
   margin-left:10px;
 }
 
-input[type="search"]{
+input[type="search"],
+input[type="date"]
+{
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;

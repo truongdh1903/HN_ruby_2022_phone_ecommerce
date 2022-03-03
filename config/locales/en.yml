@@ -230,7 +230,7 @@ en:
     predicates:
       cont: "contains"
       eq: "equals"
-      date_equals: "equals"
+      date_gteq: "start"
     models:
       product: "Product"
       category: "Category"

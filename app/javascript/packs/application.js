@@ -2,9 +2,12 @@
 // present in this directory. You"re encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it"ll be compiled.
+//= require cocoon
 
 require("jquery")
 import "bootstrap"
+require("@nathanvda/cocoon")
+
 require("../lib/owl.carousel.min")
 require("../lib/jquery.sticky")
 require("../lib/jquery.easing.1.3.min")

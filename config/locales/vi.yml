@@ -250,7 +250,7 @@ vi:
     predicates:
       cont: "gồm"
       eq: "bằng"
-      date_equals: "bằng"
+      date_gteq: "bắt đầu bằng"
     models:
       product: "Sản phẩm"
       category: "Loại"

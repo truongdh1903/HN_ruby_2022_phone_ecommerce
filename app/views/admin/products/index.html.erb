@@ -5,19 +5,67 @@
 <h2 class="related-products-title">
   <%= t "admin.products.index.name_view" %>
 </h2>
+<%= search_form_for @query, url: admin_products_url do |f| %>
+  <div class="search">
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :name_cont %>
+      <%= f.search_field :name_cont, class:"ddl" %>
+    </div>
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :category_name_cont %>
+      <%= f.search_field :category_name_cont, class:"ddl" %>
+    </div>
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :category_name_or_name_cont %>
+      <%= f.search_field :category_name_or_name_cont, class:"ddl" %>
+    </div>
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :desc_cont %>
+      <%= f.search_field :desc_cont, class:"ddl" %>
+    </div>
+  </div>
+  <br>
+  <div class="search">
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :created_at_date_gteq %>
+      <%= f.date_field :created_at_date_gteq,
+                       value:
+                        convert_param_to_date(
+                          params[:query], :created_at_date_gteq
+                        ),
+                       class: "ddl" %>
+    </div>
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :filter_by_min_cost, t("admin.products.form.min_cost") %>
+      <%= f.search_field :filter_by_min_cost, class:"ddl" %>
+    </div>
+    <div class="col-sm-3 col-md-2 field-search">
+      <%= f.label :filter_by_max_cost, t("admin.products.form.max_cost") %>
+      <%= f.search_field :filter_by_max_cost, class:"ddl" %>
+    </div>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>
+<br>
+<br>
 
 <table class="table">
   <thead>
     <tr>
       <th><%= t "admin.products.show.index" %></th>
-      <th><%= t "admin.products.form.category" %></th>
-      <th><%= t "ransack.attributes.product.name" %></th>
+      <th>
+        <%= sort_link @query,
+                      :category_name,
+                      t("admin.products.form.category")%>
+      </th>
+      <th><%= sort_link @query, :name %></th>
       <th class="width-column-image" >
         <%= t "admin.products.form.image" %>
-        </th>
-      <th class="width-column-desc" ><%= t "ransack.attributes.product.desc" %></th>
+      </th>
+      <th class="width-column-desc" ><%= sort_link @query, :desc %></th>
       <th><%= t "admin.products.index.sum_quantity" %></th>
-      <th><%= t "ransack.attributes.product.created_at" %></th>
+      <th><%= sort_link @query, :created_at %></th>
       <th colspan="2"><%= t "admin.products.index.handle" %></th>
     </tr>
   </thead>
@@ -42,7 +90,8 @@
                         edit_admin_product_path(product) %></td>
         <td><%= link_to t("admin.button.destroy"),
                         admin_product_path(product),
-                        method: :delete, data: {confirm: t("admin.are_you_sure") }%></td>
+                        method: :delete,
+                        data: {confirm: t("admin.are_you_sure") }%></td>
       </tr>
     <% end %>
   </tbody>

@@ -8,8 +8,8 @@ class ProductDetail < ApplicationRecord
 
   PRODUCT_DETAIL_ATTRS =
     %i(
-      screen system rear_camera front_camera RAM CPU SIM battery_capacity
-      quantity cost product_id product_color_id product_size_id image
+      id screen system rear_camera front_camera RAM CPU SIM battery_capacity
+      quantity cost product_id product_color_id product_size_id image _destroy
     ).freeze
 
   validates :cost, presence: true, numericality: {only_integer: true}

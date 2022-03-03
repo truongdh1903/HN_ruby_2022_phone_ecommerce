@@ -138,14 +138,6 @@ RSpec.describe Product, type: :model do
       end
     end
 
-    describe "searching for products" do
-      describe ".search" do
-        it "has 1 products with keyword 'IPHONE'" do
-          expect(Product.search("IPHONE").to_a).to eq([product1])
-        end
-      end
-    end
-
     describe "sort by products creation date" do
       describe ".order_created_at" do
         it "has 3 products sorted by creation date" do

@@ -8,85 +8,8 @@
         <%= render "shared/error_messages", object: form.object %>
 
         <%= form.hidden_field :product_id %>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :screen, t("admin.product_details.form.screen") %>
-          <%= form.text_field :screen, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :system, t("admin.product_details.form.system") %>
-          <%= form.text_field :system, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :rear_camera, t("admin.product_details.form.rear_camera") %>
-          <%= form.text_field :rear_camera, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :front_camera, t("admin.product_details.form.front_camera") %>
-          <%= form.text_field :front_camera, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :RAM, t("admin.product_details.form.ram") %>
-          <%= form.text_field :RAM, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :CPU, t("admin.product_details.form.cpu") %>
-          <%= form.text_field :CPU, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :SIM, t("admin.product_details.form.sim") %>
-          <%= form.text_field :SIM, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :battery_capacity, t("admin.product_details.form.battery_capacity") %>
-          <%= form.text_field :battery_capacity, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :quantity, t("admin.product_details.form.quantity") %>
-          <%= form.number_field :quantity, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :cost, t("admin.product_details.form.cost") %>
-          <%= form.number_field :cost, class: "input-text " %>
-        </p>
-        <p class="form-row form-row-last validate-required">
-          <%= form.label :image, t("admin.product_details.form.image") %>
-          <% if form.object.image.attached? %>
-            <%= image_tag form.object.display_image %>
-            <div class="text-fix-image" >
-              <%= t "admin.product_details.form.fix_image" %>
-            </div>
-          <% end %>
-          <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-        </p>
 
-        <p class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
-          <%= form.label :product_color_id,
-                          t("admin.product_details.form.color") %>
-
-          <%= form.select :product_color_id,
-                          options_for_select(
-                            get_selects_from_entities(
-                              ProductColor.all
-                            )
-                          ),
-                          {:class =>
-                          "country_to_state country_select"} %>
-
-        </p>
-
-        <p class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
-          <%= form.label :product_size_id,
-                          t("admin.product_details.form.size") %>
-
-          <%= form.select :product_size_id,
-                          options_for_select(
-                            get_selects_from_entities(
-                              ProductSize.all
-                            )
-                          ),
-                          {:class =>
-                          "country_to_state country_select"} %>
-        </p>
+        <%= render "subform", form: form %>
         <div class="actions">
           <%= form.submit t("admin.product_details.form.submit") %>
         </div>

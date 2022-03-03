@@ -28,6 +28,18 @@
                                   "country_to_state country_select"} %>
                 </p>
 
+                <h3><%= t "admin.products.form.product_details" %></h3>
+                <div id="product_details">
+                  <%= form.fields_for :product_details do |product_detail| %>
+                    <%= render "product_detail_fields", :f => product_detail %>
+                  <% end %>
+                  <div class="links">
+                    <%= link_to_add_association t("admin.products.form.add_product_detail"),
+                                                form,
+                                                :product_details %>
+                  </div>
+                </div>
+
                 <div class="actions flex-center">
                   <%= form.submit t("admin.products.form.submit") %>
                 </div>
