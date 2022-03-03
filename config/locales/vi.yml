@@ -182,6 +182,7 @@ vi:
     home:
       name_view: "Trang chủ"
     products:
+      name: "Sản phẩm"
       created_success: "Sản phẩm đã được tạo thành công."
       updated_success: "Sản phẩm đã được cập nhật thành công."
       destroyed_success: "Sản phẩm đã được xóa thành công."
@@ -246,6 +247,43 @@ vi:
       edit: "Sửa"
       destroy: "Xóa"
       show_user: "Xem sản phẩm"
+    orders:
+      created_success: "Đơn hàng đã được tạo thành công."
+      updated_success: "Đơn hàng đã được cập nhật thành công."
+      destroyed_success: "Đơn hàng đã được xóa thành công."
+      fail_order: "Xử lý đơn hàng không thành công!"
+      name: "Đơn hàng"
+      attributes:
+        customer_name: "Tên khách hàng"
+        delivery_address: "Địa chỉ giao hàng"
+        delivery_phone: "Điện thoại giao hàng"
+        status: "Trạng thái"
+        shiped_date: "Ngày giao hàng"
+        user_name: "Tên người dùng"
+        note: "Chú ý"
+        handle: "Xử lý"
+        submit: "Lưu"
+      index:
+        new_order: "Đơn hàng mới"
+      edit:
+        edit_order: "Sửa đơn hàng"
+    static_pages:
+      home:
+        download: "Tải về"
+        export_excel: "Tệp excel"
+        chart_product_and_quantity: "Sơ đồ sản phẩm và số lượng trong kho"
+        product_name: "Tên sản phẩm"
+        phone: "Chiếc"
+        chart_cost_and_product: "Sơ đồ theo giá"
+        price: "Giá(triệu (đ))"
+        products: "Sản phẩm"
+        chart_revenue: "Sơ đồ doanh thu sản phẩm"
+        revenue: "Doanh thu sản phẩm"
+        chart_status_order: "Sơ đồ trạng thái đơn đặt hàng"
+        chart_order_delivery: "Sơ đồ ngày giao hàng %{year}"
+        chart_user_registration: "Sơ đồ ngày đăng ký người dùng"
+      users:
+        name: "Người dùng"
   ransack:
     or: "hoặc"
     search: "Tìm kiếm"

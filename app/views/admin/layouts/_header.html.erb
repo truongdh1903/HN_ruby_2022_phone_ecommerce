@@ -73,27 +73,10 @@
             <%= link_to t("home"), admin_root_path, class: "active" %>
           </li>
           <li>
-            <%= link_to t("admin.header.products"), admin_products_path %>
+            <%= link_to t("admin.products.name"), admin_products_path %>
           </li>
           <li>
-            <%= link_to t("admin.header.categories"), "#" %>
-          </li>
-          <li>
-            <%= link_to t("admin.header.orders"), "#" %>
-          </li>
-          <li>
-            <%= link_to t("admin.header.chart"), "#" %>
-          </li>
-
-          <li>
-            <a href="#">
-              <%= t "header.category" %>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <%= t "header.contact"%>
-            </a>
+            <%= link_to t("admin.header.orders"), admin_orders_path %>
           </li>
         </ul>
       </div>

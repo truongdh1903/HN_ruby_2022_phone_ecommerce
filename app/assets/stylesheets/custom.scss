@@ -1633,3 +1633,45 @@ input[type="date"]
   max-width: 150px;
   max-height: 150px;
 }
+
+.order-row-pending{
+  color: $yellow;
+}
+.order-row-accept{
+  color: $orange-light;
+}
+.order-row-reject{
+  color: $red;
+}
+.order-row-waiting{
+  color: $blue-light-light;
+}
+.order-row-shipped{
+  color: $green-light;
+}
+.order-row-cancel{
+  color: $green;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.download-excel{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.title-group-chart{
+  margin-top: 25px;
+}
+
+.chart{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.title-order{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

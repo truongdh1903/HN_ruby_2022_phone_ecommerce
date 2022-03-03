@@ -17,6 +17,10 @@ class User < ApplicationRecord
                                dependent: :destroy
   before_save :downcase_email
 
+  scope :group_confirmed_at, (lambda do
+    group(Arel.sql("date(confirmed_at)")).count
+  end)
+
   enum role: {admin: 0, supplier: 1, user: 2}
 
   private

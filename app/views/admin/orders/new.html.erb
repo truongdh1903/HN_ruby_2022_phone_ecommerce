@@ -1,0 +1,6 @@
+<% provide :url, admin_orders_path %>
+<h1><%= t "admin.orders.index.new_order" %></h1>
+
+<%= render "form", order: @order %>
+
+<%= link_to t("admin.button.back"), admin_orders_path %>

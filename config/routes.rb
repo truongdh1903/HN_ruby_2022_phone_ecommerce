@@ -26,8 +26,10 @@ Rails.application.routes.draw do
     namespace :admin do
       get "static_pages/home"
       root "static_pages#home"
+      get "export_csv/new"
       resources :products
       resources :product_details, except: :index
+      resources :orders
     end
   end
 end

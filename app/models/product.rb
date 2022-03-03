@@ -49,6 +49,26 @@ class Product < ApplicationRecord
       .order(avg_stars: :desc)
       .limit(size)
   end)
+  scope :group_quantity, (lambda do
+    joins(:product_details)
+      .group("products.name")
+      .sum("quantity")
+  end)
+  scope :group_cost_product, (lambda do
+    joins(:product_details)
+      .group(
+        "ROUND(
+          (cost/#{Settings.unit_cost_chart}),
+          #{Settings.star_round_after_comma_sql}
+        )"
+      )
+      .count
+  end)
+  scope :group_revenue, (lambda do
+    joins(product_details: :order_details)
+      .group("products.name")
+      .sum("cost * order_details.quantity")
+  end)
 
   def self.ransackable_scopes _ = nil
     %i(filter_by_max_cost filter_by_min_cost)

@@ -1,0 +1,16 @@
+<%= simple_form_for order, url: yield(:url) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.input :customer_name,
+              label: I18n.t("admin.orders.attributes.customer_name") %>
+  <%= f.input :delivery_address,
+              label: I18n.t("admin.orders.attributes.delivery_address") %>
+  <%= f.input :delivery_phone,
+              label: I18n.t("admin.orders.attributes.delivery_phone") %>
+  <%= f.input :status, collection: Order.statuses.keys,
+              label: I18n.t("admin.orders.attributes.status") %>
+  <%= f.association :user,
+                    label: I18n.t("admin.orders.attributes.user_name") %>
+  <%= f.input :note,
+              label: I18n.t("admin.orders.attributes.note") %>
+  <%= f.button :submit, t("admin.orders.attributes.submit") %>
+<% end %>
