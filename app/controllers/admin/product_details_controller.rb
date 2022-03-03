@@ -1,4 +1,5 @@
 class Admin::ProductDetailsController < Admin::BaseController
+  before_action :check_role_admin
   before_action :find_product_detail, except: %i(new create)
   before_action :check_order_details, only: :destroy
 

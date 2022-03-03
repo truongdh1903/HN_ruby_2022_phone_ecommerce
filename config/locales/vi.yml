@@ -6,6 +6,8 @@ vi:
   home: "Trang chủ"
   not_admin: "Bạn không có quyền quản trị viên"
   must_log_in: "Bạn cần đăng nhập để thực hiện chức năng"
+  access_denied: "Bạn không được phép truy cập trang này."
+  record_not_found: "Không tìm thấy tài nguyên."
   header:
     my_account: "Tài khoản của tôi"
     wishlist: "Danh sách yêu thích"

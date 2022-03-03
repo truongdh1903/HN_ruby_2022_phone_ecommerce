@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  authorize_resource
   before_action :init_cart
   before_action :select_cart, except: :create
 
