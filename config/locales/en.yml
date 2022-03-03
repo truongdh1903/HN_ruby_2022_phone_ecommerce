@@ -6,6 +6,8 @@ en:
   home: "Home"
   not_admin: "You do not have administrator rights"
   must_log_in: "You need to login to function"
+  access_denied: "You are not authorized to access this page."
+  record_not_found: "Couldn't find resource."
   header:
     my_account: "My Account"
     wishlist: "Wishlist"

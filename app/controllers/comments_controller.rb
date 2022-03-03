@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :logged_in_user, only: %i(create destroy)
+  authorize_resource
   before_action :check_params_destroy, only: :destroy
   before_action :check_params_create, only: :create
 
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     handle_comment_fail unless params[:comment_id]
 
     @comment = Comment.find_by id: params[:comment_id]
-    handle_comment_fail unless @comment && @comment.user == current_user
+    handle_comment_fail unless @comment
   end
 
   def redirect_to_url_product_current

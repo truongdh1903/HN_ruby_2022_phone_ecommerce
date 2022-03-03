@@ -1,5 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   include Admin::ProductHelper
+  before_action :check_role_admin
   before_action :find_product, except: %i(index new create)
   before_action :check_product_orders, only: :destroy
 

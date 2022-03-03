@@ -2,7 +2,8 @@ class User < ApplicationRecord
   PROPERTIES = %i(name email address phone password desc
                   password_confirmation remember_me).freeze
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :trackable, :timeoutable, :lockable
   has_many :carts, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :comments, dependent: :destroy
