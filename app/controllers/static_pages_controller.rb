@@ -15,6 +15,10 @@ class StaticPagesController < ApplicationController
 
   def shop; end
 
+  def history
+    @orders = current_user.orders
+  end
+
   private
   def init_cart
     session[:cart] ||= []

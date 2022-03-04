@@ -1,4 +1,5 @@
 vi:
+  are_you_sure: "Bạn chắc chứ?"
   base_title_page: "Bán điện thoại"
   admin_page: "Trang quản trị viên"
   login: "Đăng nhập"
@@ -155,9 +156,24 @@ vi:
       view_all: "Xem tất cả"
       top_rating: "Đánh gía cao"
       top_new: "Sản phẩm mới"
+    history:
+      customer_name: "Tên khách hàng"
+      address: "Địa chỉ"
+      phone: "Số điện thoại"
+      status: "Trạng thái"
+      shiped_date: "Ngày giao hàng"
+      note: "Ghi chú"
+      action: "Hành động"
+      detail: "Chi tiết"
   order:
     success: "Đặt hàng thành công"
     title: "Đặt hàng"
+  orders:
+    detail:
+      product: "Sản phẩm"
+      price: "Giá"
+      quantity: "Số lượng"
+      detail: "Chi tiết sản phẩm"
   click_login: "Bấm vào đây để đăng nhập"
   billing_details: "Chi tiết hóa đơn"
   login_to_order: "Hãy đăng nhập trước khi đặt hàng!"

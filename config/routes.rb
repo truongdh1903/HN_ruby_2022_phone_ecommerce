@@ -7,15 +7,18 @@ Rails.application.routes.draw do
     post "/cart", to: "static_pages#cart"
     get "/checkout", to: "static_pages#checkout"
     get "/shop", to: "static_pages#shop"
+    get "/order-history", to: "static_pages#history", as: :order_history
+    get "/detail-history", to: "orders#show", as: :detail_history
+    post "/:order_id/cancel-order", to: "orders#cancel_order", as: :cancel_order
     as :user do
       get "/login", to: "devise/sessions#new"
       post "/login", to: "devise/sessions#create"
       delete "/logout", to: "devise/sessions#destroy"
       get "/signup", to: "devise/registrations#new"
     end
-    put "/carts/minus-qty-cart", to: "carts#minus", as: :minus_qty_cart
-    put "/carts/plus-qty-cart", to: "carts#plus", as: :plus_qty_cart
-    delete "/carts", to: "carts#destroy", as: :delete_cart
+    put "/carts/:id/minus-qty-cart", to: "carts#minus", as: :minus_qty_cart
+    put "/carts/:id/plus-qty-cart", to: "carts#plus", as: :plus_qty_cart
+    delete "/carts/:id", to: "carts#destroy", as: :delete_cart
     resources :account_activations, only: :edit
     resources :password_resets, except: %i(index show destroy)
     resources :carts, only: :create

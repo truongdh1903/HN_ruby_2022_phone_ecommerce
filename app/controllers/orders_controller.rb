@@ -13,6 +13,25 @@ class OrdersController < ApplicationController
     handle_exception
   end
 
+  def show
+    order = Order.find_by id: params[:order_id]
+    handle_exception if order.empty?
+
+    @order_details = order.order_details
+    respond_to do |format|
+      format.html{render :detail}
+      format.js{render :detail}
+    end
+  end
+
+  def cancel_order
+    order = Order.find_by id: params[:order_id]
+    handle_exception if order.empty?
+
+    order.update_column :status, "cancel"
+    redirect_back fallback_location: root_url
+  end
+
   private
 
   def init_order

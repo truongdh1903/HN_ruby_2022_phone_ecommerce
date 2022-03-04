@@ -5,6 +5,8 @@ class ProductDetail < ApplicationRecord
   has_many :carts, dependent: :destroy
   has_many :order_details, dependent: :destroy
   has_one_attached :image
+  delegate :name, to: :product_size, prefix: :size
+  delegate :name, to: :product_color, prefix: :color
 
   PRODUCT_DETAIL_ATTRS =
     %i(

@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <a href="#" class="close">×</a>
+  <h2><%= t ".detail" %></h2>
+</div>
+
+<div class="modal-body">
+  <table cellspacing="0">
+    <thead>
+      <tr>
+        <th class="product-name"><%= t ".product" %></th>
+        <th class="product-price"><%= t ".price" %></th>
+        <th class="product-quantity"><%= t ".quantity" %></th>
+        <th class="product-subtotal"><%= t ".detail" %></th>
+      </tr>
+    </thead>
+    <tbody id="cart">
+      <% if @order_details %>
+        <% @order_details.each do |item| %>
+          <tr>
+            <td>
+              <%= 
+                item.product_detail.product.name + " - " +
+                item.product_detail.product_color.name + " - " +
+                item.product_detail.product_size.name
+              %>
+            </td>
+            <td>$<%= item.cost_product %></td>
+            <td><%= item.quantity %></td>
+            <td>
+              <%= link_to t(".detail"),
+                          product_path(item.product_detail.product,
+                          product_detail_id: item.product_detail.id),
+                          target: "_blank" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-footer">&nbsp;
+</div>

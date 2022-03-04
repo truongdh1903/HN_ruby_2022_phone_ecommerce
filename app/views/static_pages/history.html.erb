@@ -1,0 +1,65 @@
+<h2 class="text-center">History Order</h2>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <table cellspacing="0" class="shop_table cart">
+      <thead>
+        <tr>
+          <th class="order_customer_name"><%= t ".customer_name" %></th>
+          <th class="order_delivery_address"><%= t ".address" %></th>
+          <th class="order_delivery_phone"><%= t ".phone" %></th>
+          <th class="order_status"><%= t ".status" %></th>
+          <th class="order_shiped_date"><%= t ".shiped_date" %></th>
+          <th class="order-note"><%= t ".note" %></th>
+          <th class="order-note"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody id="cart">
+        <% if @orders %>
+          <% @orders.each do |item| %>
+            <tr>
+              <td class="customer_name">
+                <%= item.customer_name %>
+              </td>
+              <td class="delivery_address">
+                <%= item.delivery_address %>
+              </td>
+              <td class="delivery_phone">
+                <%= item.delivery_phone %>
+              </td>
+              <td class="status">
+                <%= item.status %>
+              </td>
+              <td class="shiped_date">
+                <%= item.shiped_date %>
+              </td>
+              <td class="note">
+                <%= item.note %>
+              </td>
+              <td class="action">
+                <%= link_to "<i class='fa fa-info' title='Order detail'></i>".html_safe,
+                  detail_history_path,
+                  data: {params: "order_id=#{item.id}"},
+                  remote: true
+                %>
+                &nbsp;&nbsp;&nbsp;
+                <%= link_to_if item.pending_status?,
+                              "<i class='fa fa-trash' title='Cancel order'></i>".html_safe,
+                              cancel_order_path(item.id),
+                              method: :post,
+                              data: {confirm: t("are_you_sure")}
+                %>
+                <div id="order-detail-modal" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-1"></div>
+</div>

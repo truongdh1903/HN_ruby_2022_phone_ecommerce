@@ -17,6 +17,7 @@ class CartsController < ApplicationController
       @cur_item["quantity"] += @cart_params["quantity"].to_i
     else
       @cart << {
+        "id": @cart.size,
         "product_detail_id": @cart_params["product_detail_id"].to_i,
         "quantity": @cart_params["quantity"].to_i
       }
@@ -26,12 +27,18 @@ class CartsController < ApplicationController
 
   def minus
     @selected_cart["quantity"] -= 1
-    reset
+    @cost = params["cost"]
+    respond_to do |format|
+      format.js{render :change_quantity}
+    end
   end
 
   def plus
     @selected_cart["quantity"] += 1
-    reset
+    @cost = params["cost"]
+    respond_to do |format|
+      format.js{render :change_quantity}
+    end
   end
 
   def destroy
@@ -50,9 +57,7 @@ class CartsController < ApplicationController
 
   def select_cart
     @cart.each do |item|
-      if item["product_detail_id"] == params[:product_detail_id].to_i
-        @selected_cart = item
-      end
+      @selected_cart = item if item["id"] == params[:id].to_i
     end
   end
 

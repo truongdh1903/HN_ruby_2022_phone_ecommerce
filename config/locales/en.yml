@@ -1,11 +1,15 @@
 en:
   activate: "Activate"
+  are_you_sure: "Are you sure?"
   base_title_page: "Phone ecommerce"
   admin_page: "Admin page"
   login: "Login"
   home: "Home"
   not_admin: "You do not have administrator rights"
   must_log_in: "You need to login to function"
+  layouts:
+    header:
+      logout: "Logout"
   access_denied: "You are not authorized to access this page."
   record_not_found: "Couldn't find resource."
   header:
@@ -143,6 +147,8 @@ en:
       view_all: "View All"
       top_rating: "Top Rating"
       top_new: "Top New"
+    history:
+      detail: "Detail"
   order:
     success: "Order successfully"
     title: "Order"
