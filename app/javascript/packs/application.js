@@ -3,6 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it"ll be compiled.
 //= require cocoon
+//= require jquery
+//= require jquery_ujs
 //= require chartkick
 //= require Chart.bundle
 
@@ -19,12 +21,12 @@ require("./main")
 require("../lib/bxslider.min")
 require("./script.slider")
 
+import "bootstrap"
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "@fortawesome/fontawesome-free/css/all.css";
 
-Rails.start()
-Turbolinks.start()
 ActiveStorage.start()
+Rails.start()
+

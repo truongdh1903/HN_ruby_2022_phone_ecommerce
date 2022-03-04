@@ -1,12 +1,4 @@
 <tr class="cart_item" id="<%= "cart_#{cart["id"]}" %>">
-  <td class="product-remove">
-    <%= link_to "x", delete_cart_path,
-      data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
-      method: :delete,
-      remote: true
-    %>
-  </td>
-
   <td class="product-thumbnail">
     <a href="single-product.html">
       <%= image_tag "product-thumb-1.jpg", class: "shop_thumbnail", alt: "poster_1_up", width: "145", height: "145" %>
@@ -17,22 +9,30 @@
     <%= get_product_detail(cart["product_detail_id"]).product.name %>
   </td>
 
+  <td class="product-color">
+    <%= @product_detail.color_name %>
+  </td>
+
+  <td class="product-size">
+    <%= @product_detail.size_name %>
+  </td>
+
   <td class="product-price">
     <span class="amount">$<%= @product_detail.cost %></span>
   </td>
 
   <td class="product-quantity">
+    <input id="quantity" type="number" size="1" class="input-sm" title="Quantity" value="<%= cart["quantity"] %>" min="0" max="99" disabled>
     <div class="quantity buttons_added">
       <%= link_to "<button class='btn btn-primary btn-sm'>-</button>".html_safe,
-        minus_qty_cart_path,
-        data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
+        minus_qty_cart_path(cart["id"]),
+        data: {params: "cost=#{@product_detail.cost}"},
         method: :put,
         remote: true 
       %>
-      <input type="number" size="2" class="input-sm" title="Qty" value="<%= cart["quantity"] %>" min="0" disabled>
       <%= link_to "<button class='btn btn-primary btn-sm'>+</button>".html_safe, 
-        plus_qty_cart_path,
-        data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
+        plus_qty_cart_path(cart["id"]),
+        data: {params: "cost=#{@product_detail.cost}"},
         method: :put,
         remote: true
       %>
@@ -40,6 +40,13 @@
   </td>
 
   <td class="product-subtotal">
-    <span class="amount">$<%= cart["quantity"] * @product_detail.cost %></span>
+    <span class="amount" id="total-cost">$<%= cart["quantity"] * @product_detail.cost %></span>
+  </td>
+  <td class="product-remove">
+    <%= link_to "x", delete_cart_path(cart["id"]),
+      data: {params: "product_detail_id=#{cart["product_detail_id"]}"},
+      method: :delete,
+      remote: true
+    %>
   </td>
 </tr>
