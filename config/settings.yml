@@ -30,3 +30,8 @@ size_image_medium_more: 350
 size_image_big: 500
 accept_file_model: ["image/jpeg", "image/gif", "image/png"]
 maximum_size_file: 5
+height_chart_large: "550px"
+height_chart_medium: "400px"
+unit_cost_chart: 1_000_000
+star_round_after_comma_sql: 0
+year_chart: 2021

@@ -4,4 +4,12 @@ RSpec.describe StaticPagesController, type: :controller do
     should use_before_action(:authenticate_user!)
     should use_before_action(:init_cart)
   }
+
+  describe "GET #home" do
+    it "render home" do
+      get :home, params: {locale: I18n.locale}
+
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Styles>
+    <Style ss:ID="TextAlignment">
+      <Alignment ss:Vertical="Center" />
+    </Style>
+  </Styles>
+    <Worksheet ss:Name="Products">
+      <Table>
+        <Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="50"/>
+        <Row>
+          <Cell ss:StyleID="TextAlignment">
+            <Data ss:Type="String"><% t "admin.products.show.index" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.products.form.category" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.products.form.name" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.products.form.desc" %></Data>
+          </Cell>
+
+        </Row>
+        <% @products.each_with_index do |product, index| %>
+          <Row>
+            <Cell ss:StyleID="TextAlignment">
+              <Data ss:Type="Number"><%= index %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= product.category.name %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= product.name %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= product.desc %></Data>
+            </Cell>
+          </Row>
+        <% end %>
+      </Table>
+    </Worksheet>
+    <Worksheet ss:Name="Orders">
+      <Table>
+        <Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="50"/>
+        <Row>
+          <Cell ss:StyleID="TextAlignment">
+            <Data ss:Type="String"><% t "admin.products.show.index" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.delivery_address" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.delivery_phone" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.status" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.shiped_date" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.user_name" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.customer_name" %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= t "admin.orders.attributes.note" %></Data>
+          </Cell>
+        </Row>
+        <% @orders.each_with_index do |order, index| %>
+          <Row>
+            <Cell ss:StyleID="TextAlignment">
+              <Data ss:Type="Number"><%= index %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.delivery_address %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.delivery_phone %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.status %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.shiped_date %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.user.name %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.customer_name %></Data>
+            </Cell>
+            <Cell>
+              <Data ss:Type="String"><%= order.note %></Data>
+            </Cell>
+          </Row>
+        <% end %>
+      </Table>
+    </Worksheet>
+</Workbook>

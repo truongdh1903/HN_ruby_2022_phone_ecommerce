@@ -1,1 +1,57 @@
-<h1><%= t "admin.home.name_view" %></h1>
+<div class="download-excel">
+  <p>
+      <%= t ".download" %>:
+      <%= link_to t(".export_excel"), admin_export_csv_new_path(format: "xls") %>
+  </p>
+</div>
+
+<div class="group-chart">
+  <h1 class="title-group-chart">1. <%= t "admin.products.name" %></h1>
+  <div class="chart">
+    <%= line_chart @group_product_and_quantity,
+                   title: t(".chart_product_and_quantity"),
+                   xtitle: t(".product_name"),
+                   ytitle: t(".phone"),
+                   height: Settings.height_chart_large %>
+  </div>
+  <div class="chart">
+    <%= column_chart @group_cost_product_and_products,
+                     title: t(".chart_cost_and_product"),
+                     xtitle: t(".price"),
+                     ytitle: t(".products"),
+                     height: Settings.height_chart_large %>
+  </div>
+  <div class="chart">
+    <%= column_chart @group_product_and_revenue,
+                     title: t(".chart_revenue"),
+                     xtitle: t(".product_name"),
+                     ytitle: t(".revenue"),
+                     thousands: Settings.currency_break,
+                     suffix: Settings.currency_unit_back,
+                     height: Settings.height_chart_large %>
+  </div>
+</div>
+
+<div class="group-chart">
+  <h1 class="title-group-chart">2. <%= t "admin.orders.name" %></h1>
+  <div class="chart">
+    <%= pie_chart @group_status_orders,
+                  title: t(".chart_status_order"),
+                  height: Settings.height_chart_medium %>
+  </div>
+  <div class="chart">
+    <%= pie_chart @group_shiped_date_orders,
+                  title: t(".chart_order_delivery", year: Settings.year_chart),
+                  height: Settings.height_chart_medium %>
+  </div>
+  <div class="chart"></div>
+</div>
+
+<div class="group-chart">
+  <h1 class="title-group-chart">3. <%= t "admin.users.name" %></h1>
+  <div class="chart">
+    <%= line_chart @group_confirmed_at_user,
+                   title: t(".chart_user_registration"),
+                   height: Settings.height_chart_large %>
+  </div>
+</div>

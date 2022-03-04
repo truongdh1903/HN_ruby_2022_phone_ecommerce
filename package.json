@@ -11,6 +11,8 @@
     "@rails/webpacker": "5.4.3",
     "@types/popper.js": "^1.11.0",
     "bootstrap": "^3.4.1",
+    "chart.js": "^3.7.1",
+    "chartkick": "^4.1.1",
     "i": "^0.3.7",
     "jquery": "^3.6.0",
     "npm": "^8.3.1",

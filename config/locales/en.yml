@@ -161,6 +161,7 @@ en:
     home:
       name_view: "Home page"
     products:
+      name: "Products"
       created_success: "Product was successfully created."
       updated_success: "Product was successfully updated."
       destroyed_success: "Product was successfully destroyed."
@@ -226,6 +227,43 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       show_user: "Show"
+    orders:
+      created_success: "Order was successfully created."
+      updated_success: "Order was successfully updated."
+      destroyed_success: "Order was successfully destroyed."
+      fail_order: "Processing of order failed!"
+      name: "Orders"
+      attributes:
+        customer_name: "Customer Name"
+        delivery_address: "Delivery Address"
+        delivery_phone: "Delivery Phone"
+        status: "Status"
+        shiped_date: "Shiped Date"
+        user_name: "User Name"
+        note: "Note"
+        handle: "Handle"
+        submit: "Submit"
+      index:
+        new_order: "New Order"
+      edit:
+        edit_order: "Editing Order"
+    static_pages:
+      home:
+        download: "Download"
+        export_excel: "File excel"
+        chart_product_and_quantity: "Product chart and quantity in stock"
+        product_name: "Product Name"
+        phone: "Phone"
+        chart_cost_and_product: "Product chart by cost"
+        price: "Price(million (đ))"
+        products: "Products"
+        chart_revenue: "Revenue by product chart"
+        revenue: "Product revenue"
+        chart_status_order: "Status chart of orders"
+        chart_order_delivery: "Order delivery date chart %{year}"
+        chart_user_registration: "User registration date chart"
+      users:
+        name: "Users"
   ransack:
     or: "or"
     search: "search"
