@@ -4,7 +4,7 @@
 </div>
 
 <div class="modal-body">
-  <table cellspacing="0">
+  <table>
     <thead>
       <tr>
         <th class="product-name"><%= t ".product" %></th>
@@ -27,7 +27,7 @@
             <td>$<%= item.cost_product %></td>
             <td><%= item.quantity %></td>
             <td>
-              <%= link_to t(".detail"),
+              <%= link_to "<i class='fa fa-info'></i>".html_safe,
                           product_path(item.product_detail.product,
                           product_detail_id: item.product_detail.id),
                           target: "_blank" %>
@@ -37,7 +37,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
-
-<div class="modal-footer">&nbsp;
 </div>

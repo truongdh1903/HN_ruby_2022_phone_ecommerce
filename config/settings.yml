@@ -35,3 +35,5 @@ height_chart_medium: "400px"
 unit_cost_chart: 1_000_000
 star_round_after_comma_sql: 0
 year_chart: 2021
+cart_quantity_min: 0
+cart_quantity_max: 99

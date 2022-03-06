@@ -149,6 +149,8 @@ en:
       top_new: "Top New"
     history:
       detail: "Detail"
+    checkout:
+      bank_transfer_instruction: "Make your payment directly into our bank account. Please use your Order ID as the payment reference."
   order:
     success: "Order successfully"
     title: "Order"
@@ -288,3 +290,6 @@ en:
         category_name: "Category name"
       category:
         name: "name"
+  carts:
+    cart:
+      quantity: "Quantity"
