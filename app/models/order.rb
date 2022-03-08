@@ -15,6 +15,7 @@ class Order < ApplicationRecord
     .group(Arel.sql("month(shiped_date)"))
     .count
   end)
+  scope :latest, ->{order created_at: :desc}
 
   def set_status
     self.status = Order.statuses[:pending]

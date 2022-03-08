@@ -149,8 +149,17 @@ en:
       top_new: "Top New"
     history:
       detail: "Detail"
+      from: "From"
+      to: "To"
+      customer_name: "Customer name"
+      phone: "Delivery phone"
+      status: "Status"
+      name_or_note: "Customer name or note"
     checkout:
       bank_transfer_instruction: "Make your payment directly into our bank account. Please use your Order ID as the payment reference."
+    order:
+      order_detail: "Order detail"
+      cancel_order: "Cancel order"
   order:
     success: "Order successfully"
     title: "Order"

@@ -10,77 +10,28 @@
   </div>
 </div>
 <br>
+<div>
+  <%= search_form_for @query, url: order_history_path, class: "form-inline" do |f| %>
+    &emsp;
+    <%= f.search_field :customer_name_cont, class: "form-control", placeholder: t(".customer_name") %>
+    <%= f.search_field :delivery_phone_cont, class: "form-control", placeholder: t(".phone") %>
+    <%= f.search_field :customer_name_or_note_cont, class: "form-control", placeholder: t(".name_or_note") %>
+    <%= f.label t(".from") %>
+    <%= f.date_field :created_at_gteq, class: "form-control" %>
+    <%= f.label t(".to") %>
+    <%= f.date_field :created_at_datelteq, class: "form-control" %>&nbsp;&nbsp;&nbsp;
+    <%= f.label t(".status") %>
+    <%= f.select :status_cont, Order.statuses, include_blank: t(".all") %>
+    <%= button_tag class: "btn btn-sm" do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %>
+</div>
+<br>
 <div class="row">
   <div class="col-sm-1"></div>
   <div class="col-sm-10">
-    <table cellspacing="0" class="shop_table cart">
-      <thead>
-        <tr>
-          <th class="order_id"><%= t ".order_id" %></th>
-          <th class="order_customer_name"><%= t ".customer_name" %></th>
-          <th class="order_delivery_address"><%= t ".address" %></th>
-          <th class="order_delivery_phone"><%= t ".phone" %></th>
-          <th class="order_date"><%= t ".order_date" %></th>
-          <th class="order_status"><%= t ".status" %></th>
-          <th class="order_shiped_date"><%= t ".shiped_date" %></th>
-          <th class="order-note"><%= t ".note" %></th>
-          <th class="order-action"><%= t ".action" %></th>
-        </tr>
-      </thead>
-      <tbody id="cart">
-        <% if @orders %>
-          <% @orders.each do |item| %>
-            <tr>
-            <td class="order_id">
-                <%= item.id %>
-              </td>
-              <td class="customer_name">
-                <%= item.customer_name %>
-              </td>
-              <td class="delivery_address">
-                <%= item.delivery_address %>
-              </td>
-              <td class="delivery_phone">
-                <%= item.delivery_phone %>
-              </td>
-              <td class="delivery_phone">
-                <%= item.created_at.localtime %>
-              </td>
-              <td class="status <%= "order_status_#{item.id}" %>">
-                <%= item.status %>
-              </td>
-              <td class="shiped_date">
-                <%= item.shiped_date %>
-              </td>
-              <td class="note">
-                <%= item.note %>
-              </td>
-              <td class="action">
-                <%= link_to "<i class='fa fa-info' title='Order detail'></i>".html_safe,
-                  detail_history_path,
-                  data: {params: "order_id=#{item.id}"},
-                  remote: true
-                %>
-                &nbsp;&nbsp;&nbsp;
-                <%= link_to_if item.pending_status?,
-                               "<i class='fa fa-trash' title='Cancel order'></i>".html_safe,
-                               cancel_order_path(item.id),
-                               method: :post,
-                               remote: true,
-                               data: {confirm: t("are_you_sure")},
-                               class: "order_cancel_btn_#{item.id}"
-                %>
-                <div id="order-detail-modal" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content"></div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render partial: "static_pages/history_table", locals: {orders: @orders} %>
   </div>
   <div class="col-sm-1"></div>
 </div>

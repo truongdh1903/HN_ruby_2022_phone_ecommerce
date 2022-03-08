@@ -12,6 +12,7 @@ vi:
   layouts:
     header:
       logout: "Đăng xuất"
+      order_history: "Lịch sử đặt hàng"
   header:
     my_account: "Tài khoản của tôi"
     wishlist: "Danh sách yêu thích"
@@ -171,6 +172,10 @@ vi:
       action: "Hành động"
       detail: "Chi tiết"
       order_id: "Mã đặt hàng"
+      from: "Từ"
+      to: "Đến"
+      all: "Tất cả"
+      name_or_note: "Tên hoặc ghi chú"
     cart:
       product: "Sản phẩm"
       color: "Màu sắc"
@@ -183,6 +188,9 @@ vi:
     checkout:
       checkout: "Đặt hàng"
       bank_transfer_instruction: "Hãy chuyển khoản trực tiếp đến tài khoản ngân hàng cá nhân của chúng tôi. Hãy dùng Order ID của bạn làm nội dung gửi"
+    order:
+      order_detail: "Chi tiết đơn hàng"
+      cancel_order: "Hủy đơn hàng"
   order:
     success: "Đặt hàng thành công"
     title: "Đặt hàng"

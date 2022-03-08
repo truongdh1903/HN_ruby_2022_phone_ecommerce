@@ -14,30 +14,14 @@ ProductColor.create(name: "Blue", desc: "")
 
 Category.create(name: "Samsung", desc: "")
 Category.create(name: "IPhone", desc: "")
-Category.create(name: "Oppo", desc: "")
-Category.create(name: "Huiwei", desc: "")
-Category.create(name: "LG", desc: "")
 
-50.times do |n|
-  User.create(
-    name: Faker::Name.name,
-    desc: Faker::Lorem.sentence(word_count: 30),
-    email: Faker::Internet.email,
-    address: Faker::Address.full_address,
-    phone: rand(100000000), role: rand(0..2),
-    password: "password",
-    password_confirmation: "password",
-    confirmed_at: Faker::Date.between(from: "2019-09-23", to: "2021-09-25")
-  )
-end
+name_phone = ["IPhone XS", "IPhone 11", "Iphone X MAX", "Iphone 8 Plus", "Iphone 8", "Samsung tab", "Samsung A50", "Samsung A10", "Samsung Galaxy S20", "Samsung J7"]
 
-name_phone = ["IPhone XS", "IPhone", "Redmi Note", "Samsung tab", "Xiaomi"]
-
-80.times do
+10.times do |i|
   Product.create(
-    name: "#{name_phone[rand(4)]} #{rand(6)}",
+    name: "#{name_phone[i]}",
     desc: Faker::Lorem.sentence(word_count: 30),
-    category_id: rand(5)
+    category_id: i < 5 ? 1 : 2
   )
 end
 
@@ -69,40 +53,4 @@ Product.all.each do |product|
 
     product_detail.save
   end
-end
-
-100.times do |n|
-  Order.create(
-    delivery_address: Faker::Address.full_address,
-    delivery_phone: Faker::PhoneNumber.cell_phone,
-    shiped_date:
-      Faker::Date.between(from: "2019-09-23", to: "2021-09-25"),
-    user_id: rand(20)
-  )
-end
-
-250.times do |n|
-  OrderDetail.create(
-    quantity: rand(10),
-    cost_product: rand(200) * 100_000,
-    order_id: rand(80),
-    product_detail_id: rand(80)
-  )
-end
-
-600.times do
-  Comment.create(
-    content: Faker::Marketing.buzzwords,
-    user_id: rand(20),
-    product_id: rand(50)
-  )
-end
-
-300.times do
-  Rate.create(
-    number_of_stars: rand(1..5),
-    comment_id: rand(500),
-    user_id: rand(20),
-    product_id: rand(50)
-  )
 end

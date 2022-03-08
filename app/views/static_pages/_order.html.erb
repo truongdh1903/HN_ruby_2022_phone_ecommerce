@@ -1,0 +1,52 @@
+<tr>
+  <td class="order_id">
+    <%= order.id %>
+  </td>
+  <td class="customer_name">
+    <%= order.customer_name %>
+  </td>
+  <td class="delivery_address">
+    <%= order.delivery_address %>
+  </td>
+  <td class="delivery_phone">
+    <%= order.delivery_phone %>
+  </td>
+  <td class="delivery_phone">
+    <%= order.created_at.strftime(t("admin.format_time")) %>
+  </td>
+  <td class="status <%= "order_status_#{order.id}" %>">
+    <%= order.status %>
+  </td>
+  <td class="shiped_date">
+    <%= order.shiped_date %>
+  </td>
+  <td class="note">
+    <%= order.note %>
+  </td>
+  <td class="action">
+    <%= link_to detail_history_path,
+                data: {params: "order_id=#{order.id}"},
+                remote: true do
+            %>
+      <i class="fa fa-info" title="<%= t ".order_detail" %>"></i>
+    <% end %>
+            &nbsp;&nbsp;&nbsp;
+    <% if order.pending_status? %>
+      <%= link_to cancel_order_path(order.id),
+                  method: :post,
+                  remote: true,
+                  data: {confirm: t("are_you_sure")},
+                  class: "order_cancel_btn_#{order.id}" do
+              %>
+        <i class="fa fa-trash" title="<%= t ".cancel_order" %>"></i>
+      <% end %>
+    <% else %>
+      <i class="fa fa-trash" title="<%= t ".cancel_order" %>" disabled></i>
+    <% end %>
+    <div id="order-detail-modal" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+  </td>
+</tr>
