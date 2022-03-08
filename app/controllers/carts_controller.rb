@@ -19,13 +19,16 @@ class CartsController < ApplicationController
       @cart << {
         "id": @cart.size,
         "product_detail_id": @cart_params["product_detail_id"].to_i,
-        "quantity": @cart_params["quantity"].to_i
+        "quantity": @cart_params["quantity"].to_i,
+        "checked": false
       }
     end
     reset
   end
 
   def minus
+    return if @selected_cart["quantity"] < 2
+
     @selected_cart["quantity"] -= 1
     @cost = params["cost"]
     respond_to do |format|
@@ -41,11 +44,21 @@ class CartsController < ApplicationController
     end
   end
 
-  def destroy
-    @cart.reject! do |item|
-      item["product_detail_id"] == params[:product_detail_id].to_i
+  def check
+    @selected_cart["checked"] = !@selected_cart["checked"]
+    respond_to do |format|
+      format.js{render :check}
     end
-    reset
+  end
+
+  def destroy
+    @cart_id = params[:id].to_i
+    @cart.reject! do |item|
+      item["id"] == params[:id].to_i
+    end
+    respond_to do |format|
+      format.js{render :destroy}
+    end
   end
 
   private

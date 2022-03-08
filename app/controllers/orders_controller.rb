@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
     ActiveRecord::Base.transaction do
       @order.save!
       CreateOrderDetailJob.perform_now @order, session[:cart]
+      session[:cart].reject! do |item|
+        item["checked"]
+      end
     end
     handle_success_create_order_detail
   rescue StandardError
@@ -15,7 +18,7 @@ class OrdersController < ApplicationController
 
   def show
     order = Order.find_by id: params[:order_id]
-    handle_exception if order.empty?
+    handle_exception if order.blank?
 
     @order_details = order.order_details
     respond_to do |format|
@@ -25,11 +28,13 @@ class OrdersController < ApplicationController
   end
 
   def cancel_order
-    order = Order.find_by id: params[:order_id]
-    handle_exception if order.empty?
+    @order = Order.find_by id: params[:order_id]
+    handle_exception if @order.blank?
 
-    order.update_column :status, "cancel"
-    redirect_back fallback_location: root_url
+    @order.update_column :status, "cancel"
+    respond_to do |format|
+      format.js{render :cancel}
+    end
   end
 
   private

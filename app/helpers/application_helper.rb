@@ -66,4 +66,15 @@ module ApplicationHelper
       class: class_html
     end
   end
+
+  def custom_bootstrap_flash
+    flash_messages = []
+    flash.each do |type, message|
+      type = "success" if type == "notice"
+      type = "error"   if type == "alert"
+      text = content_tag(:script, "toastr.#{type}('#{message}');")
+      flash_messages << text if message
+    end
+    safe_join(flash_messages, "\n")
+  end
 end

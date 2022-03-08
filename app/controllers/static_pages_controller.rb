@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  include StaticPagesHelper
   before_action :authenticate_user!, only: :checkout
   before_action :init_cart, only: %i(cart checkout)
 
@@ -11,7 +12,15 @@ class StaticPagesController < ApplicationController
 
   def cart; end
 
-  def checkout; end
+  def checkout
+    @checkout_cart = @cart.select do |item|
+      item["checked"]
+    end
+    @total = @checkout_cart.reduce(0) do |total, item|
+      total + item["quantity"] * get_product_detail(item["product_detail_id"])
+                                 .cost
+    end
+  end
 
   def shop; end
 

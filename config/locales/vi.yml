@@ -9,6 +9,9 @@ vi:
   must_log_in: "Bạn cần đăng nhập để thực hiện chức năng"
   access_denied: "Bạn không được phép truy cập trang này."
   record_not_found: "Không tìm thấy tài nguyên."
+  layouts:
+    header:
+      logout: "Đăng xuất"
   header:
     my_account: "Tài khoản của tôi"
     wishlist: "Danh sách yêu thích"
@@ -160,11 +163,26 @@ vi:
       customer_name: "Tên khách hàng"
       address: "Địa chỉ"
       phone: "Số điện thoại"
+      order_date: "Ngày đặt hàng"
+      order_history: "Lịch sử đặt hàng"
       status: "Trạng thái"
       shiped_date: "Ngày giao hàng"
       note: "Ghi chú"
       action: "Hành động"
       detail: "Chi tiết"
+      order_id: "Mã đặt hàng"
+    cart:
+      product: "Sản phẩm"
+      color: "Màu sắc"
+      size: "Kích thước"
+      price: "Đơn giá"
+      quantity: "Số lượng"
+      total: "Tổng cộng"
+      checkout: "Đặt hàng"
+      shopping_cart: "Giỏ hàng"
+    checkout:
+      checkout: "Đặt hàng"
+      bank_transfer_instruction: "Hãy chuyển khoản trực tiếp đến tài khoản ngân hàng cá nhân của chúng tôi. Hãy dùng Order ID của bạn làm nội dung gửi"
   order:
     success: "Đặt hàng thành công"
     title: "Đặt hàng"
@@ -318,3 +336,6 @@ vi:
         category_name: "Tên loại"
       category:
         name: "tên"
+  carts:
+    cart:
+      quantity: "Số lượng"

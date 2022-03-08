@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
     put "/carts/:id/minus-qty-cart", to: "carts#minus", as: :minus_qty_cart
     put "/carts/:id/plus-qty-cart", to: "carts#plus", as: :plus_qty_cart
+    put "carts/:id/check-cart", to: "carts#check", as: :check_cart
     delete "/carts/:id", to: "carts#destroy", as: :delete_cart
     resources :account_activations, only: :edit
     resources :password_resets, except: %i(index show destroy)
