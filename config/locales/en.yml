@@ -294,3 +294,9 @@ en:
   carts:
     cart:
       quantity: "Quantity"
+  api:
+    v1:
+      error_code: "Failure"
+      login_error: "You need to log in to use the app."
+      logout: "Logged out"
+      invalid_user: "Invalid email/password combination!"
