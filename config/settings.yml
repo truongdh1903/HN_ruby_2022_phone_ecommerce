@@ -10,7 +10,8 @@ size_all_product: 300
 default_star: 0
 star_round_after_comma: 1
 number_of_top: 5
-number_of_suggest: 30
+number_of_top_than: 7
+number_of_suggest: 15
 default_star_rate: 0
 min_star_rate: 1
 max_star_rate: 5

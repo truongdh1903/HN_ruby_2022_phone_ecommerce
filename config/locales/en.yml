@@ -161,6 +161,7 @@ en:
   admin:
     format_time: "%d/%m/%Y"
     are_you_sure: "Are you sure?"
+    add: " Add"
     header:
       product: "Products"
       categories: "Categories"

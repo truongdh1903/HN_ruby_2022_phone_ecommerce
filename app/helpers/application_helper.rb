@@ -6,6 +6,19 @@ module ApplicationHelper
     page_title.blank? ? base_title : "#{page_title} | #{base_title}"
   end
 
+  def toastr_flash
+    flash_messages = ""
+    flash.each do |type, message|
+      case type
+      when "alert", "danger" then type = "error"
+      when "success" then type = "notice"
+      end
+
+      flash_messages << "toastr.#{type}('#{message}');" if message
+    end
+    javascript_tag flash_messages
+  end
+
   def get_avg_cost_product product
     return display_cost(Settings.default_cost) if product.product_details.blank?
 

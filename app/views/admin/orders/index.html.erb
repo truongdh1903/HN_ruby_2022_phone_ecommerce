@@ -1,5 +1,7 @@
-<h1 class="title-order"><%= t "admin.orders.name" %></h1>
-<%= link_to button_to(t(".new_order")), new_admin_order_path %>
+<h2 class="related-products-title title-admin">
+  <%= t "admin.orders.name" %>
+</h2>
+<%= link_to button_add, new_admin_order_path %>
 <br>
 
 <table class="table">
@@ -28,13 +30,13 @@
         <td><%= order.shiped_date %></td>
         <td><%= order.user.name %></td>
         <td><%= order.note %></td>
-        <td><%= link_to t("admin.button.show"), admin_order_path(order) %></td>
+        <td><%= link_to icon_show, admin_order_path(order) %></td>
         <td>
-          <%= link_to t("admin.button.edit"),
+          <%= link_to icon_edit,
                       edit_admin_order_path(order) %>
         </td>
         <td>
-          <%= link_to t("admin.button.destroy"),
+          <%= link_to icon_delete,
               admin_order_path(order),
               method: :delete,
               data: {confirm: t("admin.are_you_sure")} %>
@@ -43,3 +45,4 @@
     <% end %>
   </tbody>
 </table>
+<%== pagy_bootstrap_nav @pagy %>

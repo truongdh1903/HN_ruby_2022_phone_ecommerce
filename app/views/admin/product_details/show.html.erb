@@ -6,7 +6,7 @@
           <div id="customer_details" class="col2-set flex-center ">
             <div class="col-md-6 .col-md-offset-3">
               <div class="woocommerce-billing-fields">
-                <h3><%= @product_detail.product.name %></h3>
+                <h3 class="title-admin" ><%= @product_detail.product.name %></h3>
                 <% if @product_detail.image.attached? %>
                   <%= image_tag @product_detail.display_image %>
                   <br>
@@ -89,12 +89,6 @@
                     </tr>
                   </tbody>
                 </table>
-                <%= link_to button_to(t("admin.button.edit")),
-                            edit_admin_product_detail_path(@product_detail) %>
-                <br>
-                <%= link_to button_to(t("admin.button.back")),
-                            admin_product_path(@product_detail.product) %>
-                <br>
               </div>
             </div>
           </div>
@@ -102,4 +96,12 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="links-page">
+  <%= link_to t("admin.button.edit"),
+              edit_admin_product_detail_path(@product_detail) %>
+  |
+  <%= link_to t("admin.button.back"),
+              admin_product_path(@product_detail.product) %>
 </div>

@@ -1,38 +1,71 @@
-<p>
-  <strong><%= t "admin.orders.attributes.customer_name" %>:</strong>
-  <%= @order.customer_name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="product-content-right">
+      <div class="woocommerce">
+        <div class="checkout">
+          <div id="customer_details" class="col2-set">
+            <div class="col-md-6">
+              <div class="woocommerce-billing-fields">
+                <h3 class="title-admin">
+                  <%= @order.user.name %>
+                </h3>
 
-<p>
-  <strong><%= t "admin.orders.attributes.delivery_address" %>:</strong>
-  <%= @order.delivery_address %>
-</p>
-
-<p>
-  <strong><%= t "admin.orders.attributes.delivery_phone" %>:</strong>
-  <%= @order.delivery_phone %>
-</p>
-
-<p>
-  <strong><%= t "admin.orders.attributes.status" %>:</strong>
-  <%= @order.status %>
-</p>
-
-<p>
-  <strong><%= t "admin.orders.attributes.shiped_date" %>:</strong>
-  <%= @order.shiped_date %>
-</p>
-
-<p>
-  <strong><%= t "admin.orders.attributes.user_name" %>:</strong>
-  <%= @order.user.name %>
-</p>
-
-<p>
-  <strong><%= t "admin.orders.attributes.note" %>:</strong>
-  <%= @order.note %>
-</p>
-
-<%= link_to t("admin.button.edit"), edit_admin_order_path(@order) %>
-|
-<%= link_to t("admin.button.back"), admin_orders_path %>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.customer_name" %>: </td>
+                      <td>
+                        <%= @order.customer_name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.delivery_address" %>: </td>
+                      <td>
+                        <%= @order.delivery_address %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.delivery_phone" %>: </td>
+                      <td>
+                        <%= @order.delivery_phone %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.status" %>: </td>
+                      <td class="order-row-<%= @order.status %> text-bold">
+                        <%= @order.status %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.shiped_date" %>: </td>
+                      <td>
+                        <%= @order.shiped_date %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.user_name" %>: </td>
+                      <td>
+                        <%= @order.user.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><%= t "admin.orders.attributes.note" %>: </td>
+                      <td>
+                        <%= @order.note %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="links-page">
+  <%= link_to t("admin.button.edit"), edit_admin_order_path(@order) %>
+  |
+  <%= link_to t("admin.button.back"), admin_orders_path %>
+</div>
