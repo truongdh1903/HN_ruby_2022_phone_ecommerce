@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :received_messages, class_name: Message.name,
                                foreign_key: "user_receiver_id",
                                dependent: :destroy
+  has_one :jwt_auth, dependent: :destroy
   before_save :downcase_email
 
   scope :group_confirmed_at, (lambda do

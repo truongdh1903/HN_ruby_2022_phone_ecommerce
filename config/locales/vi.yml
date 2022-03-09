@@ -340,3 +340,9 @@ vi:
   carts:
     cart:
       quantity: "Số lượng"
+  api:
+    v1:
+      error_code: "Thất bại"
+      login_error: "Bạn cần đăng nhập trước khi sử dụng."
+      logout: "Đã đăng xuất"
+      invalid_user: "Email hoặc mật khẩu không hợp lệ!"

@@ -35,5 +35,7 @@ Rails.application.routes.draw do
       resources :product_details, except: :index
       resources :orders
     end
+
+    mount API::Base, at: "/"
   end
 end
