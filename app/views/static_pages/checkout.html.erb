@@ -15,6 +15,19 @@
   <div class="zigzag-bottom"></div>
   <div class="container">
     <div class="row">
+      <div class="col-md-4">
+        <div class="single-product-widget">
+          <h2 class="sidebar-title"><%= t ".top_sellers" %></h2>
+          <% Product
+             .top_sellers(
+               Settings.number_of_top_than
+             ).each do |product| %>
+            <%= render partial: "static_pages/product_thumb",
+                       locals: {product: product} %>
+          <% end %>
+        </div>
+      </div>
+
       <div class="col-md-8">
         <div class="product-content-right">
           <div class="woocommerce">
@@ -72,7 +85,7 @@
                             <strong class="product-quantity">
                               <%= get_product_detail(item["product_detail_id"]).product.name %>
                                 × <%= item["quantity"] %>
-                            </strong> 
+                            </strong>
                           </td>
                           <td class="product-total">
                             <span class="amount"><%= display_cost @product_detail.cost %></span>

@@ -18,8 +18,7 @@
   </div>
 </div>
 <%= render "form", product: @product %>
-<br>
-<div class="flex-center">
-  <%= link_to button_to(t("admin.button.back")), admin_products_path %>
+
+<div class="links-page">
+  <%= link_to t("admin.button.back"), admin_products_path %>
 </div>
-<br>

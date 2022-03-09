@@ -10,17 +10,9 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
     <%= render "layouts/header" %>
 
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
-      <% end %>
-    </div>
+    <%= toastr_flash %>
     <%= yield %>
 
     <%= render "layouts/footer" %>

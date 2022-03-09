@@ -12,5 +12,7 @@
                     label: I18n.t("admin.orders.attributes.user_name") %>
   <%= f.input :note,
               label: I18n.t("admin.orders.attributes.note") %>
-  <%= f.button :submit, t("admin.orders.attributes.submit") %>
+  <div class="actions flex-center">
+    <%= f.button :submit, t("admin.orders.attributes.submit") %>
+  </div>
 <% end %>

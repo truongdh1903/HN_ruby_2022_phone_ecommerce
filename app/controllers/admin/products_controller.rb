@@ -77,7 +77,7 @@ class Admin::ProductsController < Admin::BaseController
     @product.product_details.each do |product_detail|
       if product_detail.order_details.present?
         flash[:danger] = t "admin.products.ordered_product"
-        redirect_to admin_products_url
+        return redirect_to admin_products_url
       end
     end
   end

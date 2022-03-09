@@ -53,37 +53,17 @@
                 </tbody>
               </table>
             </form>
-
-            <div class="cart-collaterals">
-
-
-              <div class="cross-sells">
-                <h2>You may be interested in...</h2>
-                <ul class="products">
-                  <li class="product">
-                    <a href="single-product.html">
-                      <%= image_tag "product-2.jpg", class: "attachment-shop_catalog wp-post-image", alt: "T_4_front", width: "325", height: "325" %>
-                      <h3>Ship Your Idea</h3>
-                      <span class="price"><span class="amount">£20.00</span></span>
-                    </a>
-
-                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html">Select options</a>
-                  </li>
-
-                  <li class="product">
-                    <a href="single-product.html">
-                      <%= image_tag "product-4.jpg", class: "attachment-shop_catalog wp-post-image", alt: "T_4_front", width: "325", height: "325" %>
-                      <h3>Ship Your Idea</h3>
-                      <span class="price"><span class="amount">£20.00</span></span>
-                    </a>
-
-                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html">Select options</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="related-products-wrapper">
+      <h2 class="related-products-title"><%= t ".related_products" %></h2>
+      <div class="related-products-carousel">
+        <% Product.top_sellers(Settings.number_of_top).each do |product| %>
+          <%= render partial: "static_pages/product_suggest", locals: {product: product} %>
+        <% end %>
       </div>
     </div>
   </div>

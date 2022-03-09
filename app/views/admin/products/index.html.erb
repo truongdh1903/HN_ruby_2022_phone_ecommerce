@@ -1,8 +1,4 @@
-<br>
-<%= link_to button_to(t("admin.products.index.new_button")),
-            new_admin_product_path %>
-<br>
-<h2 class="related-products-title">
+<h2 class="related-products-title title-admin">
   <%= t "admin.products.index.name_view" %>
 </h2>
 <%= search_form_for @query, url: admin_products_url do |f| %>
@@ -43,13 +39,20 @@
       <%= f.label :filter_by_max_cost, t("admin.products.form.max_cost") %>
       <%= f.search_field :filter_by_max_cost, class:"ddl" %>
     </div>
+    <div class="col-sm-3 col-md-2 field-search">
+      <div class="submit-search-product-admin" >
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
   <br>
-  <%= f.submit %>
+
 <% end %>
 <br>
 <br>
-
+<%= link_to button_add, new_admin_product_path %>
+<br>
+<br>
 <table class="table">
   <thead>
     <tr>
@@ -83,12 +86,12 @@
         <td>
           <%= product.created_at.strftime(t("admin.format_time")) %>
         </td>
-        <td><%= link_to t("admin.button.show_user"), product %></td>
-        <td><%= link_to t("admin.products.index.details"),
+        <td><%= link_to icon_product, product %></td>
+        <td><%= link_to icon_show,
                         admin_product_path(product) %></td>
-        <td><%= link_to t("admin.button.edit"),
+        <td><%= link_to icon_edit,
                         edit_admin_product_path(product) %></td>
-        <td><%= link_to t("admin.button.destroy"),
+        <td><%= link_to icon_delete,
                         admin_product_path(product),
                         method: :delete,
                         data: {confirm: t("admin.are_you_sure") }%></td>

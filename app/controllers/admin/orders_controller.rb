@@ -4,6 +4,7 @@ class Admin::OrdersController < Admin::BaseController
 
   def index
     @orders = Order.order_created_at
+    @pagy, @orders = pagy @orders
   end
 
   def show; end

@@ -3,6 +3,8 @@
 @import './lib/owl.carousel.css';
 @import './lib/responsive.css';
 @import './color.scss';
+@import 'toastr';
+
 .floatleft {
   float: left
 }
@@ -919,6 +921,7 @@ input[type='text'],
 input[type='password'],
 input[type='email'],
 input[type='number'],
+select,
 textarea {
   border: 1px solid $white-d;
   padding: 10px;
@@ -1678,4 +1681,72 @@ input[type="date"]
 
 .product-quantity{
   width: 20%
+}
+
+.order-details-form{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid $light;
+  padding: 3px;
+}
+
+.product-order-detail{
+  padding-top: 18px;
+}
+
+.color-user{
+  color: $blue-light;
+}
+.color-show{
+  color: $black-light-light;
+}
+.color-edit{
+  color: $black-light-light;
+}
+.color-delete{
+  color: $red;
+}
+
+.button-add,
+.button-remove{
+  display: inline-block;
+  border: medium none;
+  color: #fff;
+  padding: 11px 20px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.button-add{
+  background: none repeat scroll 0 0 $yellow-dark;
+}
+
+.button-remove{
+  background: none repeat scroll 0 0 $red-dark;
+}
+
+.submit-search-product-admin{
+  padding-top: 15px;
+  padding-left: 3px;
+}
+
+.title-admin{
+  margin-top: 20px;
+}
+
+.remove-order-detail{
+  padding-top: 16px;
+}
+
+.add-order-detail{
+  padding-top: 15px;
+  padding-bottom: 12px;
+}
+
+.links-page{
+  padding: 18px 18px 18px 0px;
+  font-size: 18px;
+  color: gray;
+  display: inline-block;
+  border-radius: 5px;
 }

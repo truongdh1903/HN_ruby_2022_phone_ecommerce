@@ -1,8 +1,12 @@
 <% provide :url, admin_order_path(@order) %>
-<h1><%= t ".edit_order" %></h1>
+<h2 class="related-products-title title-admin">
+  <%= t ".edit_order" %>
+</h2>
 
 <%= render "form", order: @order %>
 
-<%= link_to t("admin.button.show"), admin_order_path(@order) %>
-|
-<%= link_to t("admin.button.back"), admin_orders_path %>
+<div class="links-page">
+  <%= link_to t("admin.button.show"), admin_order_path(@order) %>
+  |
+  <%= link_to t("admin.button.back"), admin_orders_path %>
+</div>

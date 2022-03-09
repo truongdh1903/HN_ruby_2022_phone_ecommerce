@@ -208,6 +208,7 @@ vi:
   admin:
     format_time: "%d/%m/%Y"
     are_you_sure: "Bạn có chắc không?"
+    add: " Thêm"
     header:
       product: "Sản phẩm"
       categories: "Loại sản phẩm"
