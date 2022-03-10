@@ -1,2 +1,2 @@
 $("#cart_<%= @selected_cart['id'] %>").find("#quantity").val("<%= @selected_cart['quantity']%>")
-$("#cart_<%= @selected_cart['id'] %>").find("#total-cost").html("$<%= @selected_cart['quantity'] * @cost.to_i %>")
+$("#cart_<%= @selected_cart['id'] %>").find("#total-cost").html("<%= display_cost @selected_cart['quantity'] * @cost.to_i %>")

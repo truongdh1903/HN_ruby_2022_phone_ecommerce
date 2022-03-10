@@ -25,7 +25,7 @@
   </td>
 
   <td class="product-price">
-    <span class="amount">$<%= @product_detail.cost %></span>
+    <span class="amount"><%= display_cost @product_detail.cost %></span>
   </td>
 
   <td class="product-quantity">
@@ -49,7 +49,7 @@
   </td>
 
   <td class="product-subtotal">
-    <span class="amount" id="total-cost">$<%= cart["quantity"] * @product_detail.cost %></span>
+    <span class="amount" id="total-cost"><%= display_cost cart["quantity"] * @product_detail.cost %></span>
   </td>
   <td class="product-remove">
     <%= link_to "x", delete_cart_path(cart["id"]),

@@ -1,0 +1,20 @@
+<table cellspacing="0" class="shop_table cart">
+  <thead>
+    <tr>
+      <th class="order_id"><%= t ".order_id" %></th>
+      <th class="order_customer_name"><%= t ".customer_name" %></th>
+      <th class="order_delivery_address"><%= t ".address" %></th>
+      <th class="order_delivery_phone"><%= t ".phone" %></th>
+      <th class="order_date"><%= t ".order_date" %></th>
+      <th class="order_status"><%= t ".status" %></th>
+      <th class="order_shiped_date"><%= t ".shiped_date" %></th>
+      <th class="order-note"><%= t ".note" %></th>
+      <th class="order-action"><%= t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody id="order">
+    <% if @orders %>
+      <%= render partial: "static_pages/order", collection: @orders %>
+    <% end %>
+  </tbody>
+</table>

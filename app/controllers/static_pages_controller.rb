@@ -25,7 +25,9 @@ class StaticPagesController < ApplicationController
   def shop; end
 
   def history
-    @orders = current_user.orders
+    params[:query] ||= {}
+    @query = current_user.orders.latest.ransack params[:query]
+    @orders = @query.result
   end
 
   private
