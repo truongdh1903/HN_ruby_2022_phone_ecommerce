@@ -11,7 +11,6 @@ class Ability
       return
     end
 
-    can :manage, Cart, user_id: user.id
     can %i(create read), Order, user_id: user.id
     can :manage, Order, user_id: user.id, status: :pending
     can :manage, User, id: user.id
